@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="goal_box">
+    <static>0</static>
+    <!-- <pose>0 0 0 0 -0 -1.5708</pose> -->
+    <pose>0 1 0.25 0 0 0</pose>
+    <link name="goal_box">
+      <!-- <pose>0 0 0 0 0 0</pose> -->
+          
+      <inertial>
+        <!-- <pose>0 0 0 0 0 0</pose> -->
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0166667</ixx>
+          <iyy>0.0166667</iyy>
+          <izz>0.0166667</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="goal_box">
+        <!-- <transparency>0.8</transparency> -->
+        <!-- <pose>0 1 0.25 0 -0 0</pose> -->
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name="collision">
+        <!-- <pose>0 1 0.25 0 -0 0</pose> -->
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.5</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+    </link>
+  </model>
+</sdf>
