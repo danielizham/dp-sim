@@ -11,6 +11,15 @@
 1. Clone this repository
 1. `cd` into the cloned repository
 1. Make a virtual environment using your method of choice
+
+   It is up to you whether to make a virtual environment or use your global python setup.
+   If you prefer the latter, it is easier because you can just source the Olympe shell script 
+   and you are done, but you will pollute your system with the dependencies.
+   
+   On the other hand, if you do the former, then you won't have the said problem but you have
+   to follow these [instructions](https://forum.developer.parrot.com/t/use-olympe-from-a-ros-program/10009/4)
+   to be able to import the Olympe libraries in a virtual environment.
+   
 1. Install dependencies from the `requirements.txt`
 1. Initiate `firmwared` and start up Sphinx by running the following commands:
 
