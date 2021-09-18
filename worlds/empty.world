@@ -1,9 +1,26 @@
 <?xml version="1.0"?>
 <sdf version="1.5">
+      <!-- <rendering:ogre> -->
+      <!--   <!-1- <ambient>1.0 1.0 1.0 1.0</ambient> -1-> -->
+      <!--   <!-1- <sky> -1-> -->
+      <!--   <!-1-   <material name="sky"> -1-> -->
+      <!--   <!-1-     <color rgba="0.0 0.0 0.0 1.0"/> -1-> -->
+      <!--   <!-1-   </material> -1-> -->
+      <!--   <!-1- </sky> -1-> -->
+      <!--   <grid>false</grid> -->
+      <!--   <!-1- <maxUpdateRate>10</maxUpdateRate> -1-> -->
+      <!-- </rendering:ogre> -->
     <world name="default">
+
+      <scene>
+        <grid>0</grid>
+      </scene>
+
+
         <gui>
             <camera name="user_camera">
-                <pose>-8.89 -14.33 12.97 0.0 0.58 0.84</pose>
+                <!-- <pose>-8.89 -14.33 12.97 0.0 0.58 0.84</pose> -->
+                <pose>-3 -3 3 0.0 0.98 0.78</pose>
                 <track_visual>
                     <static>true</static>
                     <use_model_frame>true</use_model_frame>
@@ -64,7 +81,7 @@
                 <interface>eth1</interface>
             </drone>
             <spawn_point name="default">
-                <pose>0 0 0.2 0 0 0</pose>
+                <pose>-0.08 0 0.2 0 0 0</pose>
             </spawn_point>
         </plugin>
         <!--*****************-->
@@ -97,23 +114,100 @@
       <uri>model://sun</uri>
   </include>
   <include>
-      <uri>model://ground_plane</uri>
+      <uri>model://grid_cells_ground</uri>
+      <pose>0 0 0 0 0 0</pose>
   </include>
-  <include>
-      <uri>model://target</uri>
-      <pose>0 1 0.25 0 0 0</pose>
-  </include>
-  <include>
-      <uri>model://target</uri>
-      <pose>0 -1 0.25 0 0 0</pose>
-  </include>
-  <include>
-      <uri>model://target</uri>
-      <pose>1 0 0.25 0 0 0</pose>
-  </include>
-  <include>
-      <uri>model://target</uri>
-      <pose>-1 0 0.25 0 0 0</pose>
-  </include>
+  <!-- <include> -->
+  <!--     <uri>model://ground_plane</uri> -->
+  <!-- </include> -->
+
+  <population name="target_population1">
+    <model name="target1">
+      <include>
+        <static>true</static>
+        <uri>model://target</uri>
+      </include>
+    </model>
+    <pose>0 -1 0 0 0 0</pose>
+    <box>
+      <size>5 5 0.01</size>
+    </box>
+    <model_count>30</model_count>
+    <distribution>
+      <type>random</type>
+      <!-- <step>0.5 0.5 0</step> -->
+    </distribution>
+  </population>
+
+  <!-- <population name="target_population2"> -->
+  <!--   <model name="target2"> -->
+  <!--     <include> -->
+  <!--       <static>true</static> -->
+  <!--       <uri>model://target</uri> -->
+  <!--     </include> -->
+  <!--   </model> -->
+  <!--   <pose>-2.5 0 0 0 0 0</pose> -->
+  <!--   <box> -->
+  <!--     <size>2 2 0.01</size> -->
+  <!--   </box> -->
+  <!--   <model_count>15</model_count> -->
+  <!--   <distribution> -->
+  <!--     <type>random</type> -->
+  <!--     <step>1.0 1.0 0</step> -->
+  <!--   </distribution> -->
+  <!-- </population> -->
+
+  <!-- <population name="target_population3"> -->
+  <!--   <model name="target3"> -->
+  <!--     <include> -->
+  <!--       <static>true</static> -->
+  <!--       <uri>model://target</uri> -->
+  <!--     </include> -->
+  <!--   </model> -->
+  <!--   <pose>0 2.5 0 0 0 0</pose> -->
+  <!--   <box> -->
+  <!--     <size>2 2 0.01</size> -->
+  <!--   </box> -->
+  <!--   <model_count>15</model_count> -->
+  <!--   <distribution> -->
+  <!--     <type>random</type> -->
+  <!--     <step>1.0 1.0 0</step> -->
+  <!--   </distribution> -->
+  <!-- </population> -->
+
+  <!-- <population name="target_population4"> -->
+  <!--   <model name="target4"> -->
+  <!--     <include> -->
+  <!--       <static>true</static> -->
+  <!--       <uri>model://target</uri> -->
+  <!--     </include> -->
+  <!--   </model> -->
+  <!--   <pose>0 -2.5 0 0 0 0</pose> -->
+  <!--   <box> -->
+  <!--     <size>2 2 0.01</size> -->
+  <!--   </box> -->
+  <!--   <model_count>15</model_count> -->
+  <!--   <distribution> -->
+  <!--     <type>random</type> -->
+  <!--     <step>1.0 1.0 0</step> -->
+  <!--   </distribution> -->
+  <!-- </population> -->
+
+  <!-- <include> -->
+  <!--     <uri>model://target</uri> -->
+  <!--     <pose>0 1.25 0.005 0 0 0</pose> -->
+  <!-- </include> -->
+  <!-- <include> -->
+  <!--     <uri>model://target</uri> -->
+  <!--     <pose>0 -1.25 0.005 0 0 0</pose> -->
+  <!-- </include> -->
+  <!-- <include> -->
+  <!--     <uri>model://target</uri> -->
+  <!--     <pose>1.25 0 0.005 0 0 0</pose> -->
+  <!-- </include> -->
+  <!-- <include> -->
+  <!--     <uri>model://target</uri> -->
+  <!--     <pose>-1.25 0 0.005 0 0 0</pose> -->
+  <!-- </include> -->
   </world>
 </sdf>
