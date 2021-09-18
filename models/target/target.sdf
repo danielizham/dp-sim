@@ -3,7 +3,7 @@
   <model name="goal_box">
     <static>0</static>
     <!-- <pose>0 0 0 0 -0 -1.5708</pose> -->
-    <pose>0 1 0.25 0 0 0</pose>
+    <pose>0 1 0.005 0 0 0</pose>
     <link name="goal_box">
       <!-- <pose>0 0 0 0 0 0</pose> -->
           
@@ -21,11 +21,11 @@
       </inertial>
 
       <visual name="goal_box">
-        <!-- <transparency>0.8</transparency> -->
+        <transparency>0.3</transparency>
         <!-- <pose>0 1 0.25 0 -0 0</pose> -->
         <geometry>
           <box>
-            <size>0.5 0.5 0.5</size>
+            <size>0.2 0.2 0.01</size> <!-- 1 cm high -->
           </box>
         </geometry>
         <material>
@@ -40,7 +40,7 @@
         <!-- <pose>0 1 0.25 0 -0 0</pose> -->
         <geometry>
           <box>
-            <size>0.5 0.5 0.5</size>
+            <size>0.2 0.2 0.01</size>
           </box>
         </geometry>
         <surface>
