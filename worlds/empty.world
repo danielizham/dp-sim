@@ -119,7 +119,7 @@
       <box>
         <size>5 8.2 0.01</size>
       </box>
-      <model_count>50</model_count>
+      <model_count>80</model_count>
       <distribution>
         <type>random</type>
         <!-- <step>0.5 0.5 0</step> -->
