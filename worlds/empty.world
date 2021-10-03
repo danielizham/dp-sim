@@ -68,7 +68,7 @@
         <interface>eth1</interface>
       </drone>
       <spawn_point name="default">
-        <pose>-0.1 0 0.2 0 0 0</pose> <!--the x offset is to centre the camera-->
+        <pose>-0.1 0 0.2 0 0 0.06</pose> <!--the x offset is to centre the camera-->
       </spawn_point>
     </plugin>
     <!--*****************-->
