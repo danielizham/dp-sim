@@ -3,7 +3,13 @@
 
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
+
 #include <ignition/math/Vector3.hh>
+#include <ignition/math/Rand.hh>
+
+#include <iostream>
+#include <fstream>
+#include <string>
 
 namespace gazebo
 {
@@ -21,11 +27,56 @@ namespace gazebo
     public: virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     {
         this->model = _model;
-      // Just output a message for now
-      std::cerr << "\nThe target plugin is attach to model[" <<
-        _model->GetName() << "]\n";
+        // Just output a message for now
+        std::cerr << "\nThe target plugin is attach to model[" <<
+            _model->GetName() << "]\n";
+    }
 
-      this->MoveModelsPlane(10, 0, 0, 0, 0, 0);
+    void Init()
+    {
+      this->updateConnection = event::Events::ConnectWorldUpdateBegin(
+              boost::bind(&MovingTarget::OnUpdate, this));
+    }
+
+    void OnUpdate()
+    {
+        gazebo::math::Pose pose = this->model->GetWorldPose();
+        double x_now = pose.pos.x;
+        double y_now = pose.pos.y;
+
+        std::ifstream file ("/home/daniel/dp-code/plugins/moving_target/toggle_movement.txt");
+        if (file.is_open())
+        {
+            file >> this->isMoving;
+            file.close();
+        }
+
+        if (this->isMoving) {
+            if ( this->x == x_now && this->y == y_now ) {
+                RandomizeSpeed();
+            } else if (x_now < -2.5) {
+                RandomizeSpeed(0, 2, -2, 2);
+            } else if (x_now > 2.5) {
+                RandomizeSpeed(-2, 0, -2, 2);
+            } else if (y_now < -4.5) {
+                RandomizeSpeed(-2, 2, 0, 2);
+            } else if (y_now > 4.5) {
+                RandomizeSpeed(-2, 2, -2, 0);
+            }
+
+            this->MoveModelsPlane(this->dx, this->dy, 0, 0, 0, 0);
+        } else {
+            this->MoveModelsPlane(0, 0, 0, 0, 0, 0);
+        }
+
+        this->x = x_now;
+        this->y = y_now;
+    }
+
+    void RandomizeSpeed(int min_dx=-2, int max_dx=2, int min_dy=-2, int max_dy=2) 
+    {
+        this->dx = ignition::math::Rand::DblUniform(min_dx, max_dx);
+        this->dy = ignition::math::Rand::DblUniform(min_dy, max_dy);
     }
 
     void MoveModelsPlane(float linear_x_vel, float linear_y_vel, float linear_z_vel, float angular_x_vel, float angular_y_vel, float angular_z_vel)
@@ -33,16 +84,16 @@ namespace gazebo
 
         std::string model_name = this->model->GetName();
 
-        /* ROS_DEBUG("Moving model=%s",model_name.c_str()); */
-
         this->model->SetLinearVel(ignition::math::Vector3d(linear_x_vel, linear_y_vel, linear_z_vel));
         this->model->SetAngularVel(ignition::math::Vector3d(angular_x_vel, angular_y_vel, angular_z_vel));
 
-        /* ROS_DEBUG("Moving model=%s....END",model_name.c_str()); */
-
     }
 
+    private: bool isMoving = false;
+    private: double x, y;
+    private: float dx, dy;
     private: physics::ModelPtr model;
+    private: event::ConnectionPtr updateConnection;
   };
 
   // Tell Gazebo about this plugin, so that Gazebo can call Load on this plugin.
