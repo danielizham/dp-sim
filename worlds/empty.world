@@ -68,7 +68,7 @@
         <interface>eth1</interface>
       </drone>
       <spawn_point name="default">
-        <pose>-0.1 0 0.2 0 0 0.06</pose> <!--the x offset is to centre the camera-->
+        <pose>-0.1 0 0.2 0 0 0</pose> <!--the x offset is to centre the camera-->
       </spawn_point>
     </plugin>
     <!--*****************-->
@@ -102,29 +102,29 @@
     </include>
     <include>
       <uri>model://grid_cells_ground</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0 0 0 -0.022</pose> <!-- Change the yaw of the ground to align with the camera -->
     </include>
     <!-- <include> -->
       <!--     <uri>model://ground_plane</uri> -->
       <!-- </include> -->
 
-    <!-- <population name="target_population1"> -->
-    <!--   <model name="target1"> -->
-    <!--     <include> -->
-    <!--       <static>true</static> -->
-    <!--       <uri>model://target</uri> -->
-    <!--     </include> -->
-    <!--   </model> -->
-    <!--   <pose>0 -1 0 0 0 0</pose> -->
-    <!--   <box> -->
-    <!--     <size>5 8.2 0.01</size> -->
-    <!--   </box> -->
-    <!--   <model_count>80</model_count> -->
-    <!--   <distribution> -->
-    <!--     <type>random</type> -->
-    <!--     <!-1- <step>0.5 0.5 0</step> -1-> -->
-    <!--   </distribution> -->
-    <!-- </population> -->
+    <population name="target_population1">
+      <model name="target1">
+        <include>
+          <static>true</static>
+          <uri>model://target</uri>
+        </include>
+      </model>
+      <pose>0 -1 0 0 0 0</pose>
+      <box>
+        <size>5 8.2 0.01</size>
+      </box>
+      <model_count>20</model_count>
+      <distribution>
+        <type>random</type>
+        <!-- <step>0.5 0.5 0</step> -->
+      </distribution>
+    </population>
 
     <!-- <population name="target_population2"> -->
       <!--   <model name="target2"> -->
