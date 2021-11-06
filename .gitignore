@@ -5,6 +5,9 @@
 .bash_history
 
 ### C++ ###
+
+*.includecache
+
 # Prerequisites
 *.d
 
