@@ -106,6 +106,7 @@
 
     <population name="target_population1">
       <model name="target1">
+        <!-- <plugin name="moving_target" filename="libmoving_target.so"> -->
         <include>
           <static>true</static>
           <uri>model://target</uri>
