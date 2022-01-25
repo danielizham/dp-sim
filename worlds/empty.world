@@ -54,7 +54,7 @@
     <plugin name="fwman" filename="libsphinx_fwman.so">
       <drone
         name="anafi4k"
-        firmware="http://plf.parrot.com/sphinx/firmwares/anafi/pc/latest/images/anafi-pc.ext2.zip"
+        firmware="/home/daniel/dp-sim-code/firmwares/anafi-pc.ext2.zip"
         hardware="anafi4k">
         <machine_params
           with_front_cam="1"
@@ -65,6 +65,7 @@
           />
         <pose>default</pose>
         <interface>eth1</interface>
+        <stolen_interface></stolen_interface>
       </drone>
       <spawn_point name="default">
         <pose>-0.1 0 0.2 0 0 0</pose> <!--the x offset is to centre the camera-->
