@@ -7,7 +7,7 @@
 
 ## Quick Start
 
-1. Make sure Sphinx and Olympe are working on your system
+1. Install [Sphinx](https://developer.parrot.com/docs/sphinx/installation.html) and [Olympe](https://developer.parrot.com/docs/olympe/installation.html)
 1. Clone this repository
 1. `cd` into the cloned repository
 1. Make a virtual environment using your method of choice
@@ -33,10 +33,13 @@
    $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:./models/ 
    $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./plugins/moving_target/build/
    ```
+
+1. Edit `worlds/custom.world` and change the basename of the firmware path
+to match your system
 1. Start up Sphinx
 
    ```bash
-   $ sphinx ./worlds/empty.world
+   $ sphinx ./worlds/custom.world
    ```
 
 1. Run the code from one of the jupyter notebooks in the `demos/` folder
