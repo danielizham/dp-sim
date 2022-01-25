@@ -20,11 +20,18 @@
    to follow these [instructions](https://forum.developer.parrot.com/t/use-olympe-from-a-ros-program/10009/4)
    to be able to import the Olympe libraries in a virtual environment.
    
-1. Install dependencies from the `requirements.txt`
-1. Initiate `firmwared` and start up Sphinx by running the following commands:
+1. Install dependencies from the `requirements.txt` OR use *docker*
+1. Initiate `firmwared`
+1. Make sure Sphinx knows where to find the models and plugins by running
 
    ```bash
-   $ GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:./models/ LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./plugins/moving_target/build/ sphinx ./worlds/empty.world
+   $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:./models/ 
+   $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./plugins/moving_target/build/
+   ```
+1. Start up Sphinx by running the following commands:
+
+   ```bash
+   $ sphinx ./worlds/empty.world
    ```
 
 1. Run the code from one of the jupyter notebooks in the `demos/` folder
