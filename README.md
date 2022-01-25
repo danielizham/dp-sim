@@ -21,14 +21,19 @@
    to be able to import the Olympe libraries in a virtual environment.
    
 1. Install dependencies from the `requirements.txt` OR use *docker*
-1. Initiate `firmwared`
-1. Make sure Sphinx knows where to find the models and plugins by running
+1. Initiate *firmwared*
+
+   ```bash
+   $ sudo systemctl start firmwared
+   ```
+
+1. Make Sphinx know where to find the models and plugins
 
    ```bash
    $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:./models/ 
    $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./plugins/moving_target/build/
    ```
-1. Start up Sphinx by running the following commands:
+1. Start up Sphinx
 
    ```bash
    $ sphinx ./worlds/empty.world
