@@ -55,13 +55,13 @@ namespace gazebo
             if ( this->x == x_now && this->y == y_now ) {
                 RandomizeSpeed();
             } else if (x_now < -2.5) {
-                RandomizeSpeed(0, 2, -2, 2);
+                RandomizeSpeed(0, 1, -1, 1);
             } else if (x_now > 2.5) {
-                RandomizeSpeed(-2, 0, -2, 2);
+                RandomizeSpeed(-1, 0, -1, 1);
             } else if (y_now < -4.5) {
-                RandomizeSpeed(-2, 2, 0, 2);
+                RandomizeSpeed(-1, 1, 0, 1);
             } else if (y_now > 4.5) {
-                RandomizeSpeed(-2, 2, -2, 0);
+                RandomizeSpeed(-1, 1, -1, 0);
             }
 
             this->MoveModelsPlane(this->dx, this->dy, 0, 0, 0, 0);
@@ -73,7 +73,7 @@ namespace gazebo
         this->y = y_now;
     }
 
-    void RandomizeSpeed(int min_dx=-2, int max_dx=2, int min_dy=-2, int max_dy=2) 
+    void RandomizeSpeed(int min_dx=-1, int max_dx=1, int min_dy=-1, int max_dy=1) 
     {
         this->dx = ignition::math::Rand::DblUniform(min_dx, max_dx);
         this->dy = ignition::math::Rand::DblUniform(min_dy, max_dy);

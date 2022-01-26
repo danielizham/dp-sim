@@ -1,3 +1,0 @@
-/root/build/CMakeFiles/edit_cache.dir
-/root/build/CMakeFiles/rebuild_cache.dir
-/root/build/CMakeFiles/moving_target.dir
