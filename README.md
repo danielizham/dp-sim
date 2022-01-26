@@ -24,6 +24,18 @@
    $ sudo sh get-docker.sh
    ```
 
+1. Install the Boost C++ Libraries development files
+
+   ```bash
+   $ sudo apt install -y libboost-all-dev
+   ```
+
+1. Unfortunately, the Boost ver. 65 that runs on Ubuntu 18.04 is incompatible with ver. 58 required by *Sphinx*. So let's trick it
+
+   ```bash
+   $ cd /usr/lib/x86_64-linux-gnu/
+   $ sudo ln -s libboost_system.so.1.65.1 libboost_system.so.1.58.0
+   ```
 1. Clone this repository
 1. `cd` into the cloned repository
 1. Initiate *firmwared*
