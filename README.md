@@ -54,7 +54,11 @@
    Change it to where this repo on your system is located. The line that needs to be changed is as below
    
    ```xml
-   firmware="/home/daniel/dp-sim-code/firmwares/anafi-pc.ext2.zip"
+   <drone
+       ...
+       firmware="/home/daniel/dp-sim-code/firmwares/anafi-pc.ext2.zip"
+       ...>
+   </drone>
    ```
    
 1. Edit `worlds/custom.world` and change the basename of the firmware path
