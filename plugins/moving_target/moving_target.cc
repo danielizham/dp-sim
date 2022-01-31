@@ -44,7 +44,7 @@ namespace gazebo
         double x_now = pose.pos.x;
         double y_now = pose.pos.y;
 
-        std::ifstream file ("/home/daniel/dp-code/plugins/moving_target/toggle_movement.txt");
+        std::ifstream file ("./plugins/moving_target/toggle_movement.txt");
         if (file.is_open())
         {
             file >> this->isMoving;
