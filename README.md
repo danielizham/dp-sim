@@ -47,8 +47,8 @@
 1. Make Sphinx know where to find the models and plugins
 
    ```bash
-   $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:./models/ 
-   $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./plugins/moving_target/build/
+   $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(pwd)/models/ 
+   $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(pwd)/plugins/moving_target/build/
    ```
 
 1. Edit `worlds/custom.world` and change the basename of the firmware path
