@@ -105,23 +105,70 @@
       <pose>0 0 0 0 0 -0.022</pose> <!-- Change the yaw of the ground to align with the camera -->
     </include>
 
-    <population name="target_population1">
-      <model name="target1">
-        <plugin name="moving_target" filename="libmoving_target.so"/>
-        <include>
+    <include>
+          <uri>model://target_1</uri>
+          <plugin name="moving_target" filename="libmoving_target.so"/>
           <static>false</static>
-          <uri>model://target</uri>
-        </include>
-      </model>
-      <pose>0 -1 0 0 0 0</pose>
-      <box>
-        <size>5 8.2 0.01</size>
-      </box>
-      <model_count>20</model_count>
-      <distribution>
-        <type>random</type>
-      </distribution>
-    </population>
+          <pose>0 2 0 0 0 0</pose>
+    </include>
+
+    <!-- <model name="Target 1"> -->
+    <!--     <include> -->
+    <!--           <uri>model://target_1</uri> -->
+    <!--           <pose>0 2 0 0 0 0</pose> -->
+    <!--     </include> -->
+    <!--     <link name="Top"> -->
+    <!--   <visual name="visual"> -->
+    <!--       <geometry> -->
+    <!--           <box> -->
+    <!--               <size>0.2 0.2 0.01</size> -->
+    <!--               </box> -->
+    <!--           </geometry> -->
+    <!--       <material> -->
+    <!--           <script> -->
+    <!--               <uri>model://target_1/materials/scripts</uri> -->
+    <!--               <uri>model://target_1/materials/textures</uri> -->
+    <!--               <name>TargetQrCode/Image</name> -->
+    <!--           </script> -->
+    <!--       </material> -->
+    <!--   </visual> -->
+    <!--     </link> -->
+    <!-- </model> -->
+    <!-- <include> -->
+    <!--   <uri>model://target_1</uri> -->
+    <!-- <model> -->
+    <!--   <pose>0 2 0 0 0 0</pose> -->
+    <!--   <link> -->
+    <!--   <visual> -->
+    <!--       <material> -->
+    <!--           <script> -->
+    <!--               <uri>model://target_1/materials/scripts</uri> -->
+    <!--               <uri>model://target_1/materials/textures</uri> -->
+    <!--               <name>TargetQrCode/Image</name> -->
+    <!--           </script> -->
+    <!--       </material> -->
+    <!--   </visual> -->
+    <!--   </link> -->
+    <!-- </model> -->
+    <!-- </include> -->
+
+    <!-- <population name="target_population1"> -->
+    <!--   <model name="target1"> -->
+    <!--     <plugin name="moving_target" filename="libmoving_target.so"/> -->
+    <!--     <include> -->
+    <!--       <static>false</static> -->
+    <!--       <uri>model://target</uri> -->
+    <!--     </include> -->
+    <!--   </model> -->
+    <!--   <pose>0 -1 0 0 0 0</pose> -->
+    <!--   <box> -->
+    <!--     <size>5 8.2 0.01</size> -->
+    <!--   </box> -->
+    <!--   <model_count>20</model_count> -->
+    <!--   <distribution> -->
+    <!--     <type>random</type> -->
+    <!--   </distribution> -->
+    <!-- </population> -->
 
   </world>
 </sdf>
