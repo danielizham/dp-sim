@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cmath>
 
 namespace gazebo
 {
@@ -36,6 +37,7 @@ namespace gazebo
     {
       this->updateConnection = event::Events::ConnectWorldUpdateBegin(
               boost::bind(&MovingTarget::OnUpdate, this));
+      this->initPose = this->model->GetWorldPose();
     }
 
     void OnUpdate()
@@ -44,25 +46,55 @@ namespace gazebo
         double x_now = pose.pos.x;
         double y_now = pose.pos.y;
 
-        std::ifstream file ("./plugins/moving_target/toggle_movement.txt");
-        if (file.is_open())
+        bool change_dir;
+        double distance_travelled = sqrt( pow(x_now-this->x_prev,2) + pow(y_now-this->y_prev,2) );
+
+        if (distance_travelled > 0.5) {
+            change_dir = true;
+            this->x_prev = x_now;
+            this->y_prev = y_now;
+        } else
+            change_dir = false;
+        
+        std::ifstream infile;
+        infile.open("./plugins/moving_target/toggle_movement.txt");
+        if (infile.is_open())
         {
-            file >> this->isMoving;
-            file.close();
+            infile >> this->isMoving;
+            infile.close();
+        }
+
+        infile.open("./plugins/moving_target/reset_position.txt");
+        if (infile.is_open())
+        {
+            infile >> this->isReset;
+            if (this->isReset) {
+               /* ResetPosition(); */
+               this->model->SetWorldPose(this->initPose);
+               std::ofstream outfile;
+               outfile.open("./plugins/moving_target/reset_position.txt", std::ofstream::out | std::ofstream::trunc);
+               outfile << "0\n";
+               outfile.close();
+               this->isReset = false;
+            }
+            infile.close();
         }
 
         if (this->isMoving) {
-            if ( this->x == x_now && this->y == y_now ) {
-                RandomizeSpeed();
-            } else if (x_now < -2.5) {
-                RandomizeSpeed(0, 1, -1, 1);
-            } else if (x_now > 2.5) {
-                RandomizeSpeed(-1, 0, -1, 1);
-            } else if (y_now < -4.5) {
-                RandomizeSpeed(-1, 1, 0, 1);
-            } else if (y_now > 4.5) {
-                RandomizeSpeed(-1, 1, -1, 0);
-            }
+            /* if ( this->x == x_now && this->y == y_now ) { */
+            /*     RandomizeSpeed(); */
+            /* } else if (x_now < -2.5) { */
+            /*     RandomizeSpeed(0, 1, -1, 1); */
+            /* } else if (x_now > 2.5) { */
+            /*     RandomizeSpeed(-1, 0, -1, 1); */
+            /* } else if (y_now < -4.5) { */
+            /*     RandomizeSpeed(-1, 1, 0, 1); */
+            /* } else if (y_now > 4.5) { */
+            /*     RandomizeSpeed(-1, 1, -1, 0); */
+            /* } */
+
+            if (change_dir)
+                this->ChangeDirection();
 
             this->MoveModelsPlane(this->dx, this->dy, 0, 0, 0, 0);
         } else {
@@ -71,6 +103,74 @@ namespace gazebo
 
         this->x = x_now;
         this->y = y_now;
+    }
+
+    enum Direction { 
+        northwest,
+        north, 
+        northeast, 
+        east,
+        southeast,
+        south, 
+        southwest,
+        west,
+        size 
+    };
+
+    void ChangeDirection() 
+    {
+        double chances = ignition::math::Rand::DblUniform(0, 1);
+        Direction dir;
+
+        if (chances < 0.7) {
+            dir = Direction(0);
+            Move(dir);
+        } else {
+            int randint = ignition::math::Rand::IntUniform(1, Direction::size);
+            dir = Direction(randint); 
+            Move(dir);
+        }
+    }
+
+    void Move(Direction dir)
+    {
+        double dist = 0.5;
+        double diag = dist; // sqrt(2*pow(dist,2)); 
+
+        switch (dir) {
+            case Direction::north:
+                this->dx = dist;
+                this->dy = 0;
+                break;
+            case Direction::northeast:
+                this->dx = diag;
+                this->dy = -diag;
+                break;
+            case Direction::east:
+                this->dx = 0;
+                this->dy = -dist;
+                break;
+            case Direction::southeast:
+                this->dx = -diag;
+                this->dy = -diag;
+                break;
+            case Direction::south:
+                this->dx = -dist;
+                this->dy = 0;
+                break;
+            case Direction::southwest:
+                this->dx = -diag;
+                this->dy = diag;
+                break;
+            case Direction::west:
+                this->dx = 0;
+                this->dy = dist;
+                break;
+            case Direction::northwest:
+                this->dx = diag;
+                this->dy = diag;
+                break;
+        }
     }
 
     void RandomizeSpeed(int min_dx=-1, int max_dx=1, int min_dy=-1, int max_dy=1) 
@@ -89,8 +189,9 @@ namespace gazebo
 
     }
 
-    private: bool isMoving = false;
-    private: double x, y;
+    private: bool isMoving = false, isReset = false;
+    private: double x, y, x_prev, y_prev;
+    private: gazebo::math::Pose initPose;
     private: float dx, dy;
     private: physics::ModelPtr model;
     private: event::ConnectionPtr updateConnection;
