@@ -5,6 +5,7 @@
 .bash_history
 toggle_movement.txt
 reset_position.txt
+.python-version
 
 ### C++ ###
 
