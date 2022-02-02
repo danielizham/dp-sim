@@ -21,26 +21,18 @@
       </inertial>
 
       <visual name="goal_box">
-        <transparency>1.0</transparency>
+        <transparency>0.3</transparency>
         <!-- <pose>0 1 0.25 0 -0 0</pose> -->
         <geometry>
           <box>
-            <size>0.5 0.5 0.01</size> <!-- 1 cm high -->
+            <size>0.2 0.2 0.01</size> <!-- 1 cm high -->
           </box>
-          <!-- <box> -->
-          <!--   <size>0.2 0.2 0.01</size> <!-1- 1 cm high -1-> -->
-          <!-- </box> -->
-          <!-- <cylinder> -->
-          <!--     <radius>0.1</radius> -->
-          <!--     <length>1.01</length> -->
-          <!--     <!-1- <length>0.01</length> -1-> -->
-          <!-- </cylinder> -->
         </geometry>
         <material>
           <script>
             <uri>model://target_1/materials/scripts</uri>
             <uri>model://target_1/materials/textures</uri>
-            <name>target_1/Image</name>
+            <name><%= "TargetQrCode/Image" %></name>
           </script>
         </material>
       </visual>
@@ -49,15 +41,8 @@
         <!-- <pose>0 1 0.25 0 -0 0</pose> -->
         <geometry>
           <box>
-            <size>0.5 0.5 0.01</size>
+            <size>0.2 0.2 0.01</size>
           </box>
-          <!-- <box> -->
-          <!--   <size>0.2 0.2 0.01</size> -->
-          <!-- </box> -->
-          <!-- <cylinder> -->
-          <!--     <radius>0.1</radius> -->
-          <!--     <length>0.01</length> -->
-          <!-- </cylinder> -->
         </geometry>
         <surface>
           <friction>
