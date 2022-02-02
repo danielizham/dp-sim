@@ -3,6 +3,8 @@
 /experiments/
 /images/
 .bash_history
+toggle_movement.txt
+reset_position.txt
 
 ### C++ ###
 
