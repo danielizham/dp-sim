@@ -11,6 +11,7 @@
 #include <fstream>
 #include <string>
 #include <cmath>
+#include <vector>
 
 namespace gazebo
 {
@@ -42,20 +43,6 @@ namespace gazebo
 
     void OnUpdate()
     {
-        gazebo::math::Pose pose = this->model->GetWorldPose();
-        double x_now = pose.pos.x;
-        double y_now = pose.pos.y;
-
-        bool change_dir;
-        double distance_travelled = sqrt( pow(x_now-this->x_prev,2) + pow(y_now-this->y_prev,2) );
-
-        if (distance_travelled > 0.5) {
-            change_dir = true;
-            this->x_prev = x_now;
-            this->y_prev = y_now;
-        } else
-            change_dir = false;
-        
         std::ifstream infile;
         infile.open("./plugins/moving_target/toggle_movement.txt");
         if (infile.is_open())
@@ -71,16 +58,41 @@ namespace gazebo
             if (this->isReset) {
                /* ResetPosition(); */
                this->model->SetWorldPose(this->initPose);
-               std::ofstream outfile;
-               outfile.open("./plugins/moving_target/reset_position.txt", std::ofstream::out | std::ofstream::trunc);
-               outfile << "0\n";
-               outfile.close();
+               /* std::ofstream outfile; */
+               /* outfile.open("./plugins/moving_target/reset_position.txt", std::ofstream::out | std::ofstream::trunc); */
+               /* outfile << "0\n"; */
+               /* outfile.close(); */
                this->isReset = false;
             }
             infile.close();
         }
 
         if (this->isMoving) {
+
+            double max_y = 20.0, min_y = -max_y, 
+                   max_x = 12.5, min_x = -max_x;
+            gazebo::math::Pose pose = this->model->GetWorldPose();
+            double x_now = pose.pos.x;
+            double y_now = pose.pos.y;
+
+            double distance_travelled = sqrt( pow(x_now-this->x_prev,2) + pow(y_now-this->y_prev,2) );
+
+            if (distance_travelled > 1) {
+                this->ChangeDirection();
+                this->x_prev = x_now;
+                this->y_prev = y_now;
+            } 
+            else if ( this->x == x_now && this->y == y_now )
+                this->ChangeDirection();
+            else if (x_now < min_x)
+                this->ChangeDirection({north,northeast,northwest});
+            else if (x_now > max_x)
+                this->ChangeDirection({south,southeast,southwest});
+            else if (y_now < min_y)
+                this->ChangeDirection({northwest,west,southwest});
+            else if (y_now > max_y)
+                this->ChangeDirection({northeast,east,southeast});
+           
             /* if ( this->x == x_now && this->y == y_now ) { */
             /*     RandomizeSpeed(); */
             /* } else if (x_now < -2.5) { */
@@ -93,16 +105,13 @@ namespace gazebo
             /*     RandomizeSpeed(-1, 1, -1, 0); */
             /* } */
 
-            if (change_dir)
-                this->ChangeDirection();
-
             this->MoveModelsPlane(this->dx, this->dy, 0, 0, 0, 0);
+
+            this->x = x_now;
+            this->y = y_now;
         } else {
             this->MoveModelsPlane(0, 0, 0, 0, 0, 0);
         }
-
-        this->x = x_now;
-        this->y = y_now;
     }
 
     enum Direction { 
@@ -117,24 +126,28 @@ namespace gazebo
         size 
     };
 
-    void ChangeDirection() 
+    void ChangeDirection(const std::vector<Direction>& dirs = {}) 
     {
-        double chances = ignition::math::Rand::DblUniform(0, 1);
         Direction dir;
+        if (dirs.size() == 0) {
+            double chances = ignition::math::Rand::DblUniform(0, 1);
 
-        if (chances < 0.7) {
-            dir = Direction(0);
-            Move(dir);
+            if (chances < 0.7) {
+                dir = Direction(0);
+            } else {
+                int randint = ignition::math::Rand::IntUniform(1, Direction::size);
+                dir = Direction(randint); 
+            }
         } else {
-            int randint = ignition::math::Rand::IntUniform(1, Direction::size);
-            dir = Direction(randint); 
-            Move(dir);
+            int randint = ignition::math::Rand::IntUniform(0, dirs.size());
+            dir = dirs[randint];
         }
+        Move(dir);
     }
 
     void Move(Direction dir)
     {
-        double dist = 0.5;
+        double dist = 0.7;
         double diag = dist; // sqrt(2*pow(dist,2)); 
 
         switch (dir) {
