@@ -22,7 +22,7 @@
         <transparency>1.0</transparency>
         <geometry>
           <box>
-            <size>0.5 0.5 0.01</size> <!-- 1 cm high -->
+            <size>1 1 0.01</size> <!-- 1 cm high -->
           </box>
         </geometry>
         <material>
@@ -37,7 +37,7 @@
       <collision name="collision">
         <geometry>
           <box>
-            <size>0.5 0.5 0.01</size>
+            <size>1 1 0.2</size>
           </box>
         </geometry>
         <surface>
