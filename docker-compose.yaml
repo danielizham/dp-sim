@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  mylibgazebo:
+    image: mylibgazebo
+    container_name: mylibgazebo
+    volumes: 
+      - ./plugins/moving_target:/app
