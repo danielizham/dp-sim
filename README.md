@@ -50,13 +50,13 @@
    $ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(pwd)/models/ 
    $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(pwd)/plugins/moving_target/build/
    ```
-1. Correct the `/home/daniel/dp-sim-code` part of the path to the Anafi firmware in the `worlds/custom.world` file. 
-   Change it to where this repo on your system is located. The line that needs to be changed is as below
+1. Correct the `/home/daniel/dp-sim` part of the path to the Anafi firmware in the `worlds/custom.world` file. 
+   Change it to where this repo is located on your system. The line that needs to be changed is as follows
    
    ```xml
    <drone
        ...
-       firmware="/home/daniel/dp-sim-code/firmwares/anafi-pc.ext2.zip"
+       firmware="/home/daniel/dp-sim/firmwares/anafi-pc.ext2.zip"
        ...>
    </drone>
    ```
