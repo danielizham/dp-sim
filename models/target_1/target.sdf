@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <sdf version="1.5">
-  <model name="goal_box">
+  <model name="Target 1">
     <static>0</static>
     <!-- <pose>0 0 0 0 -0 -1.5708</pose> -->
     <pose>0 1 0.005 0 0 0</pose>
-    <link name="goal_box">
+    <link name="Target 1 link">
       <!-- <pose>0 0 0 0 0 0</pose> -->
           
       <inertial>
@@ -20,7 +20,7 @@
         </inertia>
       </inertial>
 
-      <visual name="goal_box">
+      <visual name="Target 1 visual">
         <transparency>1.0</transparency>
         <!-- <pose>0 1 0.25 0 -0 0</pose> -->
         <geometry>
@@ -45,19 +45,19 @@
         </material>
       </visual>
 
-      <collision name="collision">
+      <collision name="Target 1 collision">
         <!-- <pose>0 1 0.25 0 -0 0</pose> -->
         <geometry>
-          <box>
-            <size>1 1 0.2</size>
-          </box>
+          <!-- <box> -->
+          <!--   <size>1 1 0.2</size> -->
+          <!-- </box> -->
           <!-- <box> -->
           <!--   <size>0.2 0.2 0.01</size> -->
           <!-- </box> -->
-          <!-- <cylinder> -->
-          <!--     <radius>0.1</radius> -->
-          <!--     <length>0.01</length> -->
-          <!-- </cylinder> -->
+          <cylinder>
+              <radius>0.5</radius>
+              <length>0.2</length>
+          </cylinder>
         </geometry>
         <surface>
           <friction>
