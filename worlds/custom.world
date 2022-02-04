@@ -54,7 +54,7 @@
     <plugin name="fwman" filename="libsphinx_fwman.so">
       <drone
         name="anafi4k"
-        firmware="/home/daniel/dp-sim-code/firmwares/anafi-pc.ext2.zip"
+        firmware="/home/daniel/dp-sim/firmwares/anafi-pc.ext2.zip"
         hardware="anafi4k">
         <machine_params
           with_front_cam="1"
