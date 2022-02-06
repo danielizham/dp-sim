@@ -83,8 +83,8 @@
       <elevation_mean>0.0</elevation_mean>
       <!-- Lowpass filter time characteristics in seconds.
               A value of 0 seconds deactivate the filter. -->
-      <magnitude_time_for_rise>10.0</magnitude_time_for_rise>
-      <direction_time_for_rise>30.0</direction_time_for_rise>
+      <magnitude_time_for_rise>0.0</magnitude_time_for_rise>
+      <direction_time_for_rise>0.0</direction_time_for_rise>
       <elevation_time_for_rise>0.0</elevation_time_for_rise>
       <!-- Wind expressions where "val" is the mean value. -->
       <!-- Example: The following defines an horizontal sinusoidal wind with
