@@ -1,7 +1,7 @@
 ### custom ###
 /rl_models/
 /experiments/
-/images/
+# /images/
 .bash_history
 toggle_movement.txt
 reset_position.txt
