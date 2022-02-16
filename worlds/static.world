@@ -100,206 +100,81 @@
     <include>
       <uri>model://sun</uri>
     </include>
+
     <include>
       <uri>model://grid_cells_ground</uri>
       <pose>0 0 0 0 0 -0.022</pose> <!-- Change the yaw of the ground to align with the camera -->
     </include>
 
     <include>
-          <uri>model://target_06</uri>
-          <name>Target 6</name>
-          <static>true</static>
-          <pose>1.5 -2.5 0 0 0 0</pose>
-    </include>
-
-    <include>
           <uri>model://target_01</uri>
-          <name>Target 1-2</name>
+          <name>Target 1</name>
           <static>true</static>
-          <pose>6.5 -2.5 0 0 0 0</pose>
+          <pose>-7.213 -6.691 0 0 0 0</pose>
     </include>
-
-    <include>
-          <uri>model://target_05</uri>
-          <name>Target 1-3</name>
-          <static>true</static>
-          <pose>11.5 -2.5 0 0 0 0</pose>
-    </include>
-
-    <include>
-          <uri>model://target_06</uri>
-          <name>Target 1-4</name>
-          <static>true</static>
-          <pose>-4.5 -2.5 0 0 0 0</pose>
-    </include>
-
-    <include>
-          <uri>model://target_07</uri>
-          <name>Target 1-5</name>
-          <static>true</static>
-          <pose>-9.5 -2.5 0 0 0 0</pose>
-    </include>
-
-    <!-- <include> -->
-    <!--       <uri>model://target_2</uri> -->
-    <!--       <name>Target 2-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>1 2.0 0 0 0 0</pose> -->
-    <!-- </include> -->
 
     <include>
           <uri>model://target_02</uri>
-          <name>Target 2-2</name>
+          <name>Target 2</name>
           <static>true</static>
-          <pose>6 2.0 0 0 0 0</pose>
+          <pose>-4.09 -10.382 0 0 0 0</pose>
     </include>
 
     <include>
-          <uri>model://target_08</uri>
-          <name>Target 2-3</name>
+          <uri>model://target_03</uri>
+          <name>Target 3</name>
           <static>true</static>
-          <pose>11 2.0 0 0 0 0</pose>
-    </include>
-
-    <include>
-          <uri>model://target_09</uri>
-          <name>Target 2-4</name>
-          <static>true</static>
-          <pose>-4 2.0 0 0 0 0</pose>
-    </include>
-
-    <include>
-          <uri>model://target_10</uri>
-          <name>Target 2-5</name>
-          <static>true</static>
-          <pose>-9 2.0 0 0 0 0</pose>
+          <pose>-7.304 -10.067 0 0 0 0</pose>
     </include>
 
     <include>
           <uri>model://target_04</uri>
-          <name>Target 4-1</name>
+          <name>Target 4</name>
           <static>true</static>
-          <pose>5.7 0.5 0 0 0 0</pose>
+          <pose>-6.668 -11.376 0 0 0 0</pose>
     </include>
-
-    <!-- <include> -->
-    <!--       <uri>model://target_4</uri> -->
-    <!--       <name>Target 4-2</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>10.7 0.5 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_4</uri> -->
-    <!--       <name>Target 4-3</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>-4.3 0.5 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_4</uri> -->
-    <!--       <name>Target 4-4</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>-9.3 0.5 0 0 0 0</pose> -->
-    <!-- </include> -->
 
     <include>
-          <uri>model://target_03</uri>
-          <name>Target 3-1</name>
+          <uri>model://target_05</uri>
+          <name>Target 5</name>
           <static>true</static>
-          <pose>4.3 7.1 0 0 0 0</pose>
+          <pose>-8.922 -9.509 0 0 0 0</pose>
     </include>
 
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>4.3 15.1 0 0 0 0</pose> -->
-    <!-- </include> -->
+    <include>
+          <uri>model://target_06</uri>
+          <name>Target 6</name>
+          <static>true</static>
+          <pose>-8.493 -7.639 0 0 0 0</pose>
+    </include>
 
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>4.3 -8.9 0 0 0 0</pose> -->
-    <!-- </include> -->
+    <include>
+          <uri>model://target_07</uri>
+          <name>Target 7</name>
+          <static>true</static>
+          <pose>-8.942 -17.789 0 0 0 0</pose>
+    </include>
 
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>4.3 -16.9 0 0 0 0</pose> -->
-    <!-- </include> -->
+    <include>
+      <uri>model://target_08</uri>
+          <name>Target 8</name>
+          <static>true</static>
+          <pose>-6.071 -15.397 0 0 0 0</pose>
+    </include>
 
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>-5.7 -8.9 0 0 0 0</pose> -->
-    <!-- </include> -->
+    <include>
+          <uri>model://target_09</uri>
+          <name>Target 9</name>
+          <static>true</static>
+          <pose>-6.175 -13.667 0 0 0 0</pose>
+    </include>
 
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>-5.7 -16.9 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>-5.7 15.1 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3-1</name> -->
-    <!--       <static>true</static> -->
-    <!--       <pose>-5.7 7.1 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_3</uri> -->
-    <!--       <name>Target 3</name> -->
-    <!--       <plugin name="moving_target" filename="libmoving_target.so"/> -->
-    <!--       <static>false</static> -->
-    <!--       <pose>-1.3 -0.9 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_4</uri> -->
-    <!--       <name>Target 4</name> -->
-    <!--       <plugin name="moving_target" filename="libmoving_target.so"/> -->
-    <!--       <static>false</static> -->
-    <!--       <pose>0.7 0.5 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <include> -->
-    <!--       <uri>model://target_5</uri> -->
-    <!--       <name>Target 5</name> -->
-    <!--       <plugin name="moving_target" filename="libmoving_target.so"/> -->
-    <!--       <static>false</static> -->
-    <!--       <pose>-1 1.5 0 0 0 0</pose> -->
-    <!-- </include> -->
-
-    <!-- <population name="target_population1"> -->
-    <!--   <model name="Target 1 population"> -->
-    <!--     <!-1- <plugin name="moving_target" filename="libmoving_target.so"/> -1-> -->
-    <!--     <include> -->
-    <!--       <static>false</static> -->
-    <!--       <uri>model://target_1</uri> -->
-    <!--     </include> -->
-    <!--   </model> -->
-    <!--   <pose>0 -1 0 0 0 0</pose> -->
-    <!--   <box> -->
-    <!--     <size>5 8 0.01</size> -->
-    <!--   </box> -->
-    <!--   <model_count>5</model_count> -->
-    <!--   <distribution> -->
-    <!--     <type>random</type> -->
-    <!--   </distribution> -->
-    <!-- </population> -->
+    <include>
+          <uri>model://target_10</uri>
+          <name>Target 10</name>
+          <static>true</static>
+          <pose>-7.159 -12.481 0 0 0 0</pose>
+    </include>
 
   </world>
 </sdf>
