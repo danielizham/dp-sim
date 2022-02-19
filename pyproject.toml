@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "dp-sim"
+version = "0.1.0"
+description = "The Python packages required to run the Design Project simulation and RL training"
+authors = ["Daniel Izham <daniel.izham@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.8"
+jsonrpclib-pelix = "^0.4.3"
+jupyter = "^1.0.0"
+opencv-python = "^4.5.5"
+parrot-olympe = "^7.0.3"
+pynput = "^1.7.6"
+PySimpleGUI = "^4.57.0"
+pyzbar = "^0.1.8"
+qrcode = "^7.3.1"
+scipy = "^1.8.0"
+stable-baselines3 = "^1.4.0"
+torchvision = "^0.11.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
