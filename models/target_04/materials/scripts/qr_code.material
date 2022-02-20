@@ -1,0 +1,14 @@
+material target_4/Image
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture id_4.png
+                scale 1 1
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+material target_6/Image
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture id_6.png
+                scale 1 1
+	        filtering anistropic
+                max_anisotropy 16
+            }
+        }
+    }
+}
