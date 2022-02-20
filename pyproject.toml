@@ -17,8 +17,13 @@ qrcode = "^7.3.1"
 scipy = "^1.8.0"
 stable-baselines3 = "^1.4.0"
 torchvision = "^0.11.3"
+torch = "^1.10.2"
 
 [tool.poetry.dev-dependencies]
+poethepoet = "^0.12.3"
+
+[tool.poe.tasks]
+force-cuda11 = "pip3 install torch==1.10.2+cu113 torchvision==0.11.3+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
