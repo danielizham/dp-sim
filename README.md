@@ -7,6 +7,8 @@
 
 ## Quick Start
 
+1. Ensure your computer's graphics mode is set to Discrete to avoid memory leak while running Sphinx.
+
 1. Install *Sphinx 1.8*
 
    ```bash
