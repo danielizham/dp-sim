@@ -106,102 +106,84 @@
     </include>
 
     <include>
-          <uri>model://target_1</uri>
+          <uri>model://target_01</uri>
           <name>Target 1</name>
           <plugin name="moving_target" filename="libmoving_target.so"/>
           <static>false</static>
-          <pose>1.5 -2.5 0 0 0 0</pose>
+          <pose>-7.213 -6.691 0 0 0 0</pose>
     </include>
 
     <include>
-          <uri>model://target_2</uri>
+          <uri>model://target_02</uri>
           <name>Target 2</name>
           <plugin name="moving_target" filename="libmoving_target.so"/>
           <static>false</static>
-          <pose>1 2.0 0 0 0 0</pose>
+          <pose>-4.09 -10.382 0 0 0 0</pose>
     </include>
 
     <include>
-          <uri>model://target_3</uri>
+          <uri>model://target_03</uri>
           <name>Target 3</name>
           <plugin name="moving_target" filename="libmoving_target.so"/>
           <static>false</static>
-          <pose>-1.3 -0.9 0 0 0 0</pose>
+          <pose>-7.304 -10.067 0 0 0 0</pose>
     </include>
 
     <include>
-          <uri>model://target_4</uri>
+          <uri>model://target_04</uri>
           <name>Target 4</name>
           <plugin name="moving_target" filename="libmoving_target.so"/>
           <static>false</static>
-          <pose>0.7 0.5 0 0 0 0</pose>
+          <pose>-6.668 -11.376 0 0 0 0</pose>
     </include>
 
     <include>
-          <uri>model://target_5</uri>
+          <uri>model://target_05</uri>
           <name>Target 5</name>
           <plugin name="moving_target" filename="libmoving_target.so"/>
           <static>false</static>
-          <pose>-1 1.5 0 0 0 0</pose>
+          <pose>-8.922 -9.509 0 0 0 0</pose>
     </include>
 
-    <!-- <model name="Target 1"> -->
-    <!--     <include> -->
-    <!--           <uri>model://target_1</uri> -->
-    <!--           <pose>0 2 0 0 0 0</pose> -->
-    <!--     </include> -->
-    <!--     <link name="Top"> -->
-    <!--   <visual name="visual"> -->
-    <!--       <geometry> -->
-    <!--           <box> -->
-    <!--               <size>0.2 0.2 0.01</size> -->
-    <!--               </box> -->
-    <!--           </geometry> -->
-    <!--       <material> -->
-    <!--           <script> -->
-    <!--               <uri>model://target_1/materials/scripts</uri> -->
-    <!--               <uri>model://target_1/materials/textures</uri> -->
-    <!--               <name>TargetQrCode/Image</name> -->
-    <!--           </script> -->
-    <!--       </material> -->
-    <!--   </visual> -->
-    <!--     </link> -->
-    <!-- </model> -->
-    <!-- <include> -->
-    <!--   <uri>model://target_1</uri> -->
-    <!-- <model> -->
-    <!--   <pose>0 2 0 0 0 0</pose> -->
-    <!--   <link> -->
-    <!--   <visual> -->
-    <!--       <material> -->
-    <!--           <script> -->
-    <!--               <uri>model://target_1/materials/scripts</uri> -->
-    <!--               <uri>model://target_1/materials/textures</uri> -->
-    <!--               <name>TargetQrCode/Image</name> -->
-    <!--           </script> -->
-    <!--       </material> -->
-    <!--   </visual> -->
-    <!--   </link> -->
-    <!-- </model> -->
-    <!-- </include> -->
+    <include>
+          <uri>model://target_06</uri>
+          <name>Target 6</name>
+          <plugin name="moving_target" filename="libmoving_target.so"/>
+          <static>false</static>
+          <pose>-8.493 -7.639 0 0 0 0</pose>
+    </include>
 
-    <!-- <population name="target_population1"> -->
-    <!--   <model name="target1"> -->
-    <!--     <plugin name="moving_target" filename="libmoving_target.so"/> -->
-    <!--     <include> -->
-    <!--       <static>false</static> -->
-    <!--       <uri>model://target</uri> -->
-    <!--     </include> -->
-    <!--   </model> -->
-    <!--   <pose>0 -1 0 0 0 0</pose> -->
-    <!--   <box> -->
-    <!--     <size>5 8.2 0.01</size> -->
-    <!--   </box> -->
-    <!--   <model_count>20</model_count> -->
-    <!--   <distribution> -->
-    <!--     <type>random</type> -->
-    <!--   </distribution> -->
-    <!-- </population> -->
+    <include>
+          <uri>model://target_07</uri>
+          <name>Target 7</name>
+          <plugin name="moving_target" filename="libmoving_target.so"/>
+          <static>false</static>
+          <pose>-8.942 -17.789 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://target_08</uri>
+          <name>Target 8</name>
+          <plugin name="moving_target" filename="libmoving_target.so"/>
+          <static>false</static>
+          <pose>-6.071 -15.397 0 0 0 0</pose>
+    </include>
+
+    <include>
+          <uri>model://target_09</uri>
+          <name>Target 9</name>
+          <plugin name="moving_target" filename="libmoving_target.so"/>
+          <static>false</static>
+          <pose>-6.175 -13.667 0 0 0 0</pose>
+    </include>
+
+    <include>
+          <uri>model://target_10</uri>
+          <name>Target 10</name>
+          <plugin name="moving_target" filename="libmoving_target.so"/>
+          <static>false</static>
+          <pose>-7.159 -12.481 0 0 0 0</pose>
+    </include>
 
   </world>
 </sdf>
