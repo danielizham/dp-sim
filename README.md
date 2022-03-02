@@ -53,8 +53,9 @@
 1. Make Sphinx know where to find the models and plugins
 
    ```bash
-   $ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${PWD}/models/ 
-   $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${PWD}/plugins/moving_target/build/
+   $ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${PWD}/models
+   $ export GAZEBO_RESOURCE_PATH=${GAZEBO_RESOURCE_PATH}:${PWD}/worlds
+   $ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:${PWD}/plugins/moving_target/build
    ```
 1. Correct the `/home/daniel/dp-sim` part of the path to the Anafi firmware in the `worlds/custom.world` file. 
    Change it to where this repo is located on your system. The line that needs to be changed is as follows
@@ -72,7 +73,7 @@ to match your system
 1. Start up Sphinx
 
    ```bash
-   $ sphinx ./worlds/custom.world
+   $ sphinx custom.world
    ```
 
 1. Spin up a container for the development environment
