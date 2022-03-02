@@ -69,7 +69,12 @@
    ```
    
 1. Edit `worlds/custom.world` and change the basename of the firmware path
-to match your system
+to match your system. Or in one simple line:
+
+   ```bash
+   $ sed -i "s|/home/daniel/dp-sim|${PWD}|g" ./worlds/custom.world
+   ```
+   
 1. Start up Sphinx
 
    ```bash
