@@ -57,8 +57,8 @@
    $ export GAZEBO_RESOURCE_PATH=${GAZEBO_RESOURCE_PATH}:${PWD}/worlds
    $ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:${PWD}/plugins/moving_target/build
    ```
-1. Correct the `/home/daniel/dp-sim` part of the path to the Anafi firmware in the `worlds/custom.world` file. 
-   Change it to where this repo is located on your system. The line that needs to be changed is as follows
+1. Edit `worlds/custom.world` file and change the basename (`/home/daniel/dp-sim`) of the Anafi firmware path
+to match your directory structure. The line that needs to be changed is as follows
    
    ```xml
    <drone
@@ -68,8 +68,7 @@
    </drone>
    ```
    
-1. Edit `worlds/custom.world` and change the basename of the firmware path
-to match your system. Or in one simple line:
+   Instead of doing it manually, the correction can be done in one simple line:
 
    ```bash
    $ sed -i "s|/home/daniel/dp-sim|${PWD}|g" ./worlds/custom.world
