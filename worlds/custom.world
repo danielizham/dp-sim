@@ -101,7 +101,7 @@
       <uri>model://sun</uri>
     </include>
     <include>
-      <uri>model://grid_cells_ground</uri>
+      <uri>model://grid</uri>
       <pose>0 0 0 0 0 -0.022</pose> <!-- Change the yaw of the ground to align with the camera -->
     </include>
 

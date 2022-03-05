@@ -29,8 +29,8 @@
         </geometry>
         <material>
           <script>
-            <uri>model://grid_cells_ground/materials/scripts</uri>
-            <uri>model://grid_cells_ground/materials/textures/</uri>
+            <uri>model://grid/materials/scripts</uri>
+            <uri>model://grid/materials/textures/</uri>
             <name>MyGroundPlane/Image</name>
           </script>
         </material>
