@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="29mm"
+   height="29mm"
+   version="1.1"
+   viewBox="0 0 29 29"
+   id="svg5"
+   sodipodi:docname="id_2.svg"
+   inkscape:version="1.0.2 (1.0.2+r75+1)"
+   inkscape:export-filename="/home/daniel/dp-sim/images/qrcode_mod/id_10.png"
+   inkscape:export-xdpi="436.79999"
+   inkscape:export-ydpi="436.79999">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1213"
+     inkscape:window-height="745"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="5.1159074"
+     inkscape:cx="53.107996"
+     inkscape:cy="52.338748"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     inkscape:document-rotation="0" />
+  <rect
+     fill="#ffffff"
+     x="4"
+     y="4"
+     width="72.413788%"
+     height="72.413788%"
+     id="rect2"
+     style="stroke-width:0.724138"
+     inkscape:export-xdpi="436.79999"
+     inkscape:export-ydpi="436.79999" />
+  <path
+     d="m 16,7.9999998 v 1 h 1 v -1 z M 10,22 v 1 h 1 V 22 Z M 8.0000001,3.9999999 v 0.9999999 h 1 V 3.9999999 Z M 21,6.9999998 v 1 h 1 v -1 z m 2,-2.9999999 v 0.9999999 h 1 V 3.9999999 Z M 24,24 v 1 h 1 v -1 z m -6,-7 v 1 h 1 v -1 z m 5,-4 v 1 h 1 V 13 Z M 14,9.9999999 V 11 h 1 V 9.9999999 Z m -9.9999999,-1 v 1 h 1 v -1 z m 2,-3 v 1 h 1 v -1 z m 8.9999999,3 v 1 h 1 v -1 z M 13,21 v 1 h 1 V 21 Z M 4.0000001,18 v 1 h 1 V 18 Z M 17,12 v 1 h 1 V 12 Z M 10,5.9999998 v 1 h 1 v -1 z M 22,14 v 1 h 1 V 14 Z M 10,24 v 1 h 1 V 24 Z M 8.0000002,5.9999999 v 1 h 1 v -1 z M 22,23 v 1 h 1 V 23 Z M 7.0000001,9.9999998 V 11 H 8.0000002 V 9.9999998 Z m 4.9999999,-4 v 1 h 1 v -1 z m -5.9999999,2 v 1 h 1 v -1 z M 4.0000001,20 v 1 h 1 v -1 z m 1,-8 v 1 h 1 V 12 Z M 10,7.9999998 v 1 h 1 v -1 z m 10,2 V 11 h 1 V 9.9999998 Z m 2,-3 v 1 h 1 v -1 z M 17,23 v 1 h 1 v -1 z m 2,-3 v 1 h 1 v -1 z m -5,4 v 1 h 1 v -1 z m -3,-8 v 1 h 1 v -1 z m 11,0 v 1 h 1 v -1 z m -4,8 v 1 h 1 V 24 Z M 12,7.9999998 v 1 h 1 v -1 z m 1,-1 v 1 h 1 v -1 z m -8.9999999,-3 v 1 h 1 v -1 z M 9.0000002,18 v 1 H 10 V 18 Z M 21,20 v 1 h 1 V 20 Z M 7.0000001,21 v 1 H 8.0000002 V 21 Z M 13,16 v 1 h 1 V 16 Z M 4.0000001,13 v 1 h 1 V 13 Z M 15,13 v 1 h 1 v -1 z m 1,11 v 1 h 1 V 24 Z M 19,3.9999998 v 1 h 1 v -1 z M 17,16 v 1 h 1 v -1 z m 2,-3 v 1 h 1 V 13 Z M 10,9.9999998 V 11 h 1 V 9.9999998 Z M 20,12 v 1 h 1 v -1 z m -1,10 v 1 h 1 V 22 Z M 18,4.9999998 v 1 h 1 v -1 z m 3,-1 v 1 h 1 v -1 z M 24,21 v 1 h 1 v -1 z m -8,-4 v 1 h 1 V 17 Z M 7.0000001,14 v 1 H 8.0000002 V 14 Z M 21,13 v 1 h 1 V 13 Z M 23,9.9999998 V 11 h 1 V 9.9999998 Z M 18,14 v 1 h 1 V 14 Z M 13,8.9999998 v 1 h 1 v -1 z m -8.9999999,-3 v 1 h 1 v -1 z M 18,23 v 1 h 1 V 23 Z M 8.0000002,22 v 1 h 1 V 22 Z M 14,19 v 1 h 1 V 19 Z M 5.0000001,16 v 1 h 1 V 16 Z M 17,18 v 1 h 1 v -1 z m 3,-4 v 1 h 1 V 14 Z M 6.0000001,24 v 1 h 1 V 24 Z M 20,23 v 1 h 1 V 23 Z M 24,4.9999998 v 1 h 1 v -1 z M 22,20 v 1 h 1 V 20 Z M 16,9.9999998 V 11 h 1 V 9.9999998 Z m -8.9999999,-3 v 1 h 1.0000001 v -1 z m 2.0000001,-3 v 1 H 10 v -1 z m 11.9999998,2 v 1 h 1 v -1 z m -3,1 v 1 h 1 v -1 z M 16,19 v 1 h 1 V 19 Z M 7.0000001,16 v 1 h 1.0000001 v -1 z m 2.0000001,-3 v 1 H 10 v -1 z m -1,2 v 1 h 1 V 15 Z M 18,16 v 1 h 1 v -1 z m -5,-5 v 1 h 1 v -1 z m 2,-3.0000002 v 1 h 1 v -1 z M 8.0000002,24 v 1 h 1 V 24 Z M 13,20 v 1 h 1 V 20 Z M 10,4.9999998 v 1 h 1 v -1 z m 10,2 v 1 h 1 v -1 z m 2,-3 v 1 h 1 v -1 z M 5.0000001,18 v 1 h 1 V 18 Z M 14,21 v 1 h 1 v -1 z m 9,3 v 1 h 1 V 24 Z M 24,6.9999998 v 1 h 1 v -1 z M 22,22 v 1 h 1 V 22 Z M 18,8.9999998 v 1 h 1 v -1 z m 3,-1 v 1 h 1 v -1 z m -12.9999998,0 v 1 h 1 v -1 z m 4.9999998,-4 v 1 h 1 v -1 z M 7.0000001,18 v 1 H 8.0000002 V 18 Z M 16,21 v 1 h 1 v -1 z m -3,-8 v 1 h 1 v -1 z m 1,-8.0000002 v 1 h 1 v -1 z M 12,17 v 1 h 1 v -1 z m 2,-3 v 1 h 1 v -1 z m 9,3 v 1 h 1 V 17 Z M 19,9.9999998 V 11 h 1 V 9.9999998 Z m -12.9999999,0 V 11 h 1 V 9.9999998 Z M 22,5.9999998 v 1 h 1 v -1 z M 4.0000001,22 v 1 h 1 V 22 Z M 15,22 v 1 h 1 v -1 z m -4,-7 v 1 h 1 v -1 z m 11,0 v 1 h 1 v -1 z m 2,-6.0000002 v 1 h 1 v -1 z M 10,19 v 1 h 1 v -1 z m 6,-5 v 1 h 1 V 14 Z M 8.0000002,9.9999998 V 11 h 1 V 9.9999998 Z M 7.0000001,20 v 1 H 8.0000002 V 20 Z M 18,20 v 1 h 1 V 20 Z M 12,9.9999998 V 11 h 1 V 9.9999998 Z m 2,-3 v 1 h 1 v -1 z m -8.9999999,-3 v 1 h 1 v -1 z M 21,22 v 1 h 1 v -1 z m -4,-7 v 1 h 1 V 15 Z M 4.0000001,15 v 1 h 1 V 15 Z M 15,15 v 1 h 1 v -1 z m 7,-7.0000002 v 1 h 1 v -1 z M 4.0000001,24 v 1 h 1 v -1 z m 2,-3 v 1 h 1 V 21 Z M 20,20 v 1 h 1 V 20 Z M 10,12 v 1 h 1 V 12 Z M 7.0000001,3.9999999 V 4.9999998 H 8.0000002 V 3.9999999 Z m 10.9999999,0 v 0.9999999 h 1 V 3.9999999 Z M 24,20 v 1 h 1 v -1 z m -14,1 v 1 h 1 v -1 z m 6,-5 v 1 h 1 V 16 Z M 9.0000002,9.9999998 V 11 H 10 V 9.9999998 Z m -1,2.0000002 v 1 h 1 V 12 Z M 7.0000001,22 v 1 H 8.0000002 V 22 Z M 18,22 v 1 h 1 V 22 Z M 8.0000002,21 v 1 h 1 V 21 Z M 12,12 v 1 h 1 v -1 z m 2,-3.0000002 v 1 h 1 v -1 z m -9.9999999,-1 v 1 h 1 v -1 z M 20,3.9999998 v 1 h 1 v -1 z M 14,18 v 1 h 1 v -1 z m 9,3 v 1 h 1 v -1 z m -8,-4 v 1 h 1 V 17 Z M 6.0000001,14 v 1 h 1 v -1 z m -1,10 v 1 h 1 V 24 Z M 24,3.9999998 v 1 h 1 v -1 z M 10,14 v 1 h 1 v -1 z m 14,-1 v 1 h 1 V 13 Z M 16,8.9999998 v 1 h 1 v -1 z m -8.9999999,-3 v 1 h 1.0000001 v -1 z m 10.9999999,0 v 1 h 1 v -1 z M 10,23 v 1 h 1 v -1 z m 8,-8 v 1 h 1 V 15 Z M 8.0000002,14 v 1 h 1 V 14 Z M 14,11 v 1 h 1 V 11 Z M 4.0000001,9.9999998 V 11 h 1 V 9.9999998 Z m 2,-3 v 1 h 1 v -1 z M 20,5.9999998 v 1 h 1 v -1 z M 14,20 v 1 h 1 v -1 z m -1,2 v 1 h 1 V 22 Z M 4.0000001,19 v 1 h 1 V 19 Z M 15,19 v 1 h 1 v -1 z m -3,4 v 1 h 1 v -1 z m 11,0 v 1 h 1 V 23 Z M 9.0000002,24 v 1 H 10 V 24 Z M 10,6.9999998 v 1 h 1 v -1 z m 14,-1 v 1 h 1 v -1 z M 19,19 v 1 h 1 v -1 z m -9,-3 v 1 h 1 V 16 Z M 7.0000001,7.9999998 v 1 h 1.0000001 v -1 z m 10.9999999,0 v 1 h 1 v -1 z m -9.9999998,-1 v 1 h 1 v -1 z M 22,24 v 1 h 1 V 24 Z M 8.0000002,16 v 1 h 1 V 16 Z M 21,9.9999998 V 11 h 1 V 9.9999998 Z M 21,19 v 1 h 1 v -1 z m -9,-3 v 1 h 1 v -1 z m 11,0 v 1 h 1 V 16 Z M 5.0000001,9.9999998 V 11 h 1 V 9.9999998 Z M 20,7.9999998 v 1 h 1 v -1 z M 14,22 v 1 h 1 v -1 z m -1,2 v 1 h 1 V 24 Z M 4.0000001,21 v 1 h 1 v -1 z m 2,-3 v 1 h 1 V 18 Z M 15,21 v 1 h 1 v -1 z m 4,-9 v 1 h 1 V 12 Z M 10,8.9999999 v 1 h 1 v -1 z m 14,-1 v 1 h 1 v -1 z M 17,24 v 1 h 1 V 24 Z M 16,3.9999999 v 1 h 1 v -1 z M 10,18 v 1 h 1 v -1 z m 14,-1 v 1 h 1 v -1 z m -2,0 v 1 h 1 v -1 z m -3,4 v 1 h 1 V 21 Z M 18,9.9999999 V 11 h 1 V 9.9999999 Z M 8.0000002,18 v 1 h 1 V 18 Z M 12,8.9999999 v 1 h 1 v -1 z m -7.9999999,-4 v 1 h 1 v -1 z m 10.9999999,0 v 1 h 1 v -1 z M 23,18 v 1 h 1 v -1 z m -9,-3 v 1 h 1 v -1 z m 7,6 v 1 h 1 v -1 z m -6,-7 v 1 h 1 V 14 Z M 4.0000001,23 v 1 h 1 v -1 z m 2,-3 v 1 h 1 V 20 Z M 17,17 v 1 h 1 v -1 z m 2,-3 v 1 h 1 V 14 Z M 24,9.9999998 V 11 h 1 V 9.9999998 Z m -2,0 V 11 h 1 V 9.9999998 Z M 10,20 v 1 h 1 v -1 z m 10,2 v 1 h 1 V 22 Z M 8.0000002,20 v 1 h 1 V 20 Z M 21,14 v 1 h 1 V 14 Z M 14,7.9999998 v 1 h 1 v -1 z m -9.9999999,-1 v 1 h 1 v -1 z m 2,-2.9999999 v 0.9999999 h 1 V 3.9999999 Z M 15,6.9999998 v 1 h 1 v -1 z M 14,17 v 1 h 1 v -1 z m -1,2 v 1 h 1 v -1 z m 2,-3 v 1 h 1 V 16 Z M 6.0000001,13 v 1 h 1 V 13 Z M 12,20 v 1 h 1 v -1 z m 11,0 v 1 h 1 V 20 Z M 7.0000001,24 v 1 h 1.0000001 v -1 z m -1,-2 v 1 h 1 V 22 Z M 10,3.9999998 v 1 h 1 v -1 z M 20,15 v 1 h 1 v -1 z m 2,-3 v 1 h 1 v -1 z"
+     id="qr-path"
+     fill="#000000"
+     fill-opacity="1"
+     fill-rule="nonzero"
+     stroke="none" />
+  <path
+     id="rect3599"
+     style="fill:#ff7f0e;fill-opacity:1;stroke:none;stroke-width:0.0886791;stroke-dasharray:0.709433, 0.70943299999999998;stroke-opacity:1"
+     d="M 3.9166673,3.9166667 V 25.083333 H 25.083333 V 3.9166667 Z m 0.2132806,0.21328 H 24.870052 V 24.870052 H 4.1299479 Z"
+     inkscape:export-xdpi="436.79999"
+     inkscape:export-ydpi="436.79999" />
+  <path
+     id="path866"
+     style="opacity:0.997;fill:#ff7f0e;fill-opacity:1;stroke:none;stroke-width:0.250439;stroke-dasharray:2.00352, 2.00351999999999997"
+     d="M 16.616667,14.5 A 2.1166666,2.1166666 0 0 1 14.5,16.616667 2.1166666,2.1166666 0 0 1 12.383333,14.5 2.1166666,2.1166666 0 0 1 14.5,12.383333 2.1166666,2.1166666 0 0 1 16.616667,14.5 Z" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.58611px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f2f2f2;stroke-width:0.264583"
+     x="13.348886"
+     y="15.951504"
+     id="text856"
+     inkscape:export-xdpi="436.79999"
+     inkscape:export-ydpi="436.79999"><tspan
+       sodipodi:role="line"
+       id="tspan1255"
+       x="13.348886"
+       y="15.951504">2</tspan></text>
+</svg>
