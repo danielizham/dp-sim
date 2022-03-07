@@ -25,6 +25,43 @@
    $ curl -fsSL https://get.docker.com -o get-docker.sh
    $ sudo sh get-docker.sh
    ```
+1. Make a Python virtual environment using your method of choice. My recommendation is to use a combination of Pyenv and Poetry.
+   
+   To do so, first install the required Ubuntu packages
+   ```bash
+   sudo apt-get update && sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+   libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+   libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
+   libffi-dev liblzma-dev
+   ```
+   
+   Then, set up Pyenv
+   ```bash
+   curl https://pyenv.run | bash && \
+   echo >> ~/.bashrc && \
+   echo "# to use pyenv and pyenv-virtualenv" >> ~/.bashrc && \
+   echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc && \
+   echo 'eval "$(pyenv init --path)"' >> ~/.bashrc && \
+   echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc && \
+   echo 'source $(pyenv root)/completions/pyenv.bash' >> ~/.bashrc
+   ```
+   
+   and Poetry
+   ```bash
+   sudo apt-get install -y python3-venv && \
+   curl -sSL https://install.python-poetry.org | python3 - && \
+   echo >> ~/.bashrc && \
+   echo "# to use poetry" >> ~/.bashrc && \
+   echo 'export PATH="/home/daniel/.local/bin:$PATH"' >> ~/.bashrc && \
+   poetry self update && \
+   poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
+   ```
+   
+   Restart your terminal for the changes to take effect.
+   
+   If you face any issue while following the instructions above, please refer to their respective official documentations
+   for [Pyenv](https://github.com/pyenv/pyenv) and [Poetry](https://python-poetry.org/docs/)
+
 1. Install the zbar source and header files required by the Pyzbar package
 
    ```bash
@@ -48,6 +85,11 @@
 
    ```bash
    $ sudo systemctl start firmwared
+   ```
+
+1. Install the Python dependencies (Note: this will take some time)
+   ```bash
+   $ poetry install
    ```
 
 1. Make Sphinx know where to find the models and plugins
