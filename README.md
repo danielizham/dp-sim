@@ -61,7 +61,12 @@
    
    If you face any issue while following the instructions above, please refer to their respective official documentations
    for [Pyenv](https://github.com/pyenv/pyenv) and [Poetry](https://python-poetry.org/docs/)
+   
+1. Install the right version of Python (Note: this will take some time)
 
+   ```bash
+   pyenv install 3.8.12
+   ```
 1. Install the zbar source and header files required by the Pyzbar package
 
    ```bash
@@ -79,19 +84,23 @@
    cd /usr/lib/x86_64-linux-gnu/ && \
    sudo ln -s libboost_system.so.1.65.1 libboost_system.so.1.58.0
    ```
-1. Clone this repository
-1. `cd` into the cloned repository
 1. Initiate *firmwared*
 
    ```bash
    sudo systemctl start firmwared
    ```
-
+1. Clone this repository
+1. `cd` into the cloned repository
+1. Set a virtual environment for this directory (change <project-name> to whatever you want to identify this environment with)
+  
+   ```bash
+   pyenv virtualenv 3.8.12 <project-name> && pyenv local <project-name>
+   ```
 1. Install the Python dependencies (Note: this will take some time)
+
    ```bash
    poetry install
    ```
-
 1. Make Sphinx know where to find the models and plugins
 
    ```bash
