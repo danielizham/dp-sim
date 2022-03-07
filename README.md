@@ -91,7 +91,7 @@
    ```
 1. Clone this repository
 1. `cd` into the cloned repository
-1. Set a virtual environment for this directory (change <project-name> to whatever you want to identify this environment with)
+1. Set a virtual environment for this directory (change \<project-name\> to whatever you want to identify this environment with)
   
    ```bash
    pyenv virtualenv 3.8.12 <project-name> && pyenv local <project-name>
