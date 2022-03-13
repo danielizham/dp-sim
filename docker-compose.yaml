@@ -1,7 +1,0 @@
-version: "3.9"
-services:
-  mylibgazebo:
-    image: mylibgazebo
-    container_name: mylibgazebo
-    volumes: 
-      - ./plugins/static_target:/app
