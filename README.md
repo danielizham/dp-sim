@@ -52,7 +52,7 @@
    curl -sSL https://install.python-poetry.org | python3 - && \
    echo >> ~/.bashrc && \
    echo "# to use poetry" >> ~/.bashrc && \
-   echo 'export PATH="/home/daniel/.local/bin:$PATH"' >> ~/.bashrc && \
+   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && \
    poetry self update && \
    poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion
    ```
@@ -96,7 +96,7 @@
    ```bash
    pyenv virtualenv 3.8.12 <project-name> && pyenv local <project-name>
    ```
-1. Install the Python dependencies (Note: this will take some time)
+1. Install the Python dependencies based on the pyproject.toml (Note: this will take some time)
 
    ```bash
    poetry install
