@@ -44,7 +44,6 @@ namespace gazebo
         /* std::cerr << std::stoi(id) << std::endl; */
 
         this->id = std::stoi(id);
-
     }
 
     enum class CSVState {
@@ -125,13 +124,13 @@ namespace gazebo
     void OnUpdate()
     {
         std::ifstream infile;
-        infile.open("./plugins/static_target/reset_position.txt");
+        infile.open("./comm/reset_position.txt");
         if (infile.is_open())
         {
             infile >> this->isReset;
             if (this->isReset) {
                 std::ifstream datafile;
-                datafile.open("./plugins/static_target/data.csv");
+                datafile.open("./comm/positions.csv");
                 if (datafile.is_open())
                 {
                     auto row = readCSV(datafile);

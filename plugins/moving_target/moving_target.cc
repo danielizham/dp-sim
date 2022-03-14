@@ -8,6 +8,7 @@
 #include <ignition/math/Rand.hh>
 
 #include <iostream>
+#include <istream>
 #include <fstream>
 #include <string>
 #include <cmath>
@@ -32,6 +33,80 @@ namespace gazebo
         // Just output a message for now
         std::cerr << "\nThe target plugin is attach to model[" <<
             _model->GetName() << "]\n";
+
+        std::string myname = _model->GetName();
+        std::string id = "";
+
+        for(int i=0; i<myname.length(); i++) {
+            if(isdigit(myname[i]))
+                id += myname[i];
+        }
+
+        this->id = std::stoi(id);
+    }
+
+    enum class CSVState {
+        UnquotedField,
+        QuotedField,
+        QuotedQuote
+    };
+
+    std::vector<std::string> readCSVRow(const std::string &row) {
+        CSVState state = CSVState::UnquotedField;
+        std::vector<std::string> fields {""};
+        size_t i = 0; // index of the current field
+        for (char c : row) {
+            switch (state) {
+                case CSVState::UnquotedField:
+                    switch (c) {
+                        case ',': // end of field
+                                  fields.push_back(""); i++;
+                                  break;
+                        case '"': state = CSVState::QuotedField;
+                                  break;
+                        default:  fields[i].push_back(c);
+                                  break; }
+                    break;
+                case CSVState::QuotedField:
+                    switch (c) {
+                        case '"': state = CSVState::QuotedQuote;
+                                  break;
+                        default:  fields[i].push_back(c);
+                                  break; }
+                    break;
+                case CSVState::QuotedQuote:
+                    switch (c) {
+                        case ',': // , after closing quote
+                                  fields.push_back(""); i++;
+                                  state = CSVState::UnquotedField;
+                                  break;
+                        case '"': // "" -> "
+                                  fields[i].push_back('"');
+                                  state = CSVState::QuotedField;
+                                  break;
+                        default:  // end of quote
+                                  state = CSVState::UnquotedField;
+                                  break; }
+                    break;
+            }
+        }
+        return fields;
+    }
+
+    /// Read CSV file, Excel dialect. Accept "quoted fields ""with quotes"""
+    std::vector<std::string> readCSV(std::istream &in) {
+        std::vector<std::vector<std::string>> table;
+        std::string row;
+        while (!in.eof()) {
+            std::getline(in, row);
+            if (in.bad() || in.fail()) {
+                break;
+            }
+            auto fields = readCSVRow(row);
+            int id = std::stoi(fields[0]);
+            if(id == this->id)
+                return fields;
+        }
     }
 
     void Init()
@@ -44,36 +119,41 @@ namespace gazebo
     void OnUpdate()
     {
         std::ifstream infile;
-        infile.open("./plugins/moving_target/toggle_movement.txt");
+        infile.open("./comm/toggle_movement.txt");
         if (infile.is_open())
         {
             infile >> this->isMoving;
             infile.close();
         }
 
-        infile.open("./plugins/moving_target/reset_position.txt");
+        infile.open("./comm/reset_position.txt");
         if (infile.is_open())
         {
             infile >> this->isReset;
             if (this->isReset) {
-               /* ResetPosition(); */
+                std::ifstream datafile;
+                datafile.open("./comm/positions.csv");
+                if (datafile.is_open())
+                {
+                    auto row = readCSV(datafile);
+                    this->initPose.pos.x = std::stod(row[1]);
+                    this->initPose.pos.y = std::stod(row[2]);
+                    datafile.close();
+                }
                this->model->SetWorldPose(this->initPose);
-               /* std::ofstream outfile; */
-               /* outfile.open("./plugins/moving_target/reset_position.txt", std::ofstream::out | std::ofstream::trunc); */
-               /* outfile << "0\n"; */
-               /* outfile.close(); */
-               this->isReset = false;
             }
             infile.close();
         }
 
+        gazebo::math::Pose pose = this->model->GetWorldPose();
+        double x_now = pose.pos.x;
+        double y_now = pose.pos.y;
         if (this->isMoving) {
+            if (this->hasSavedPosition)
+                this->hasSavedPosition = false;
 
             double max_y = 20.0, min_y = -max_y, 
                    max_x = 12.5, min_x = -max_x;
-            gazebo::math::Pose pose = this->model->GetWorldPose();
-            double x_now = pose.pos.x;
-            double y_now = pose.pos.y;
 
             double distance_travelled = sqrt( pow(x_now-this->x_prev,2) + pow(y_now-this->y_prev,2) );
 
@@ -111,6 +191,15 @@ namespace gazebo
             this->y = y_now;
         } else {
             this->MoveModelsPlane(0, 0, 0, 0, 0, 0);
+            if (!this->hasSavedPosition) {
+                std::string filename = "./comm/position_" + std::to_string(id) + ".csv"; 
+                std::ofstream outfile(filename, std::ios::trunc);
+                if (outfile.is_open()) {
+                    outfile << x_now << "," << y_now;
+                    outfile.close();
+                    this->hasSavedPosition = true;
+                }
+            }
         }
     }
 
@@ -202,12 +291,14 @@ namespace gazebo
 
     }
 
-    private: bool isMoving = false, isReset = false;
-    private: double x, y, x_prev, y_prev;
-    private: gazebo::math::Pose initPose;
-    private: float dx, dy;
-    private: physics::ModelPtr model;
-    private: event::ConnectionPtr updateConnection;
+    private: 
+    int id;
+    bool isMoving = false, isReset = false, hasSavedPosition = false;
+    double x, y, x_prev, y_prev;
+    gazebo::math::Pose initPose;
+    float dx, dy;
+    physics::ModelPtr model;
+    event::ConnectionPtr updateConnection;
   };
 
   // Tell Gazebo about this plugin, so that Gazebo can call Load on this plugin.
