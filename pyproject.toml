@@ -9,7 +9,6 @@ python = "3.8"
 jsonrpclib-pelix = "^0.4.3"
 jupyter = "^1.0.0"
 opencv-python = "^4.5.5"
-parrot-olympe = "^7.0.3"
 pynput = "^1.7.6"
 PySimpleGUI = "^4.57.0"
 pyzbar = "^0.1.8"
@@ -19,6 +18,10 @@ stable-baselines3 = "^1.4.0"
 torchvision = "^0.11.3"
 torch = "^1.10.2"
 tensorboard = "^2.8.0"
+PySDL2 = "^0.9.11"
+PyOpenGL = "^3.1.6"
+parrot-olympe = {path = "parrot_olympe-0.0.0-202203141719-py3-none-manylinux_2_31_aarch64.whl"}
+protobuf = "3.6"
 
 [tool.poetry.dev-dependencies]
 poethepoet = "^0.12.3"
