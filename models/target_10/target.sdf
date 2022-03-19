@@ -8,9 +8,9 @@
       <inertial>
         <mass>1</mass>
         <inertia>
-          <ixx>0.000166667</ixx>
-          <iyy>0.000166667</iyy>
-          <izz>0.000166667</izz>
+          <ixx>0.0166667</ixx>
+          <iyy>0.0166667</iyy>
+          <izz>0.0166667</izz>
           <ixy>0.0</ixy>
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
@@ -37,7 +37,7 @@
         <geometry>
           <cylinder>
               <radius>0.5</radius>
-              <length>0.01</length>
+              <length>0.2</length>
           </cylinder>
         </geometry>
         <surface>
