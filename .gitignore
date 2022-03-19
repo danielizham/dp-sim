@@ -92,7 +92,7 @@ tags
 # [Ss]cripts
 pyvenv.cfg
 .venv
-.envrc
+# .envrc
 venv/
 pip-selfcheck.json
 
