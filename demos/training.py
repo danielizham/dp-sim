@@ -756,7 +756,7 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
 #             os.makedirs(self.save_path, exist_ok=True)
 
     def _on_step(self) -> bool:
-        if self.n_calls % 5 == 0:
+        if self.n_calls % 4096 == 0:
             self.model.save(os.path.join(self.progress_dir, 'model_' + str(self.n_calls)))
             
         if self.n_calls % self.check_freq == 0:
@@ -780,6 +780,12 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
         
         return True
 
+def ping(host):
+    # Building the command. Ex: "ping -c 1 google.com"
+    command = ['ping', '-c', '1', host]
+
+    return subprocess.call(command) == 0
+
 def train():
     # Create log dir
     log_dir = "logs/"
@@ -793,10 +799,12 @@ def train():
 
     callback = SaveOnBestTrainingRewardCallback(check_freq=1024, log_dir=log_dir)
 
-    model = PPO("MlpPolicy", env, n_steps=2048, verbose=1, tensorboard_log=log_dir)
+    # model = PPO("MlpPolicy", env, n_steps=2048, verbose=1, tensorboard_log=log_dir)
     # model = PPO.load(os.path.join(log_dir, str(run-1) + "_run"), env)
-    model.learn(total_timesteps=131_072, callback=callback, tb_log_name="PPO_" + str(run), reset_num_timesteps=False)
+    model = PPO.load(os.path.join(log_dir, "best_model"), env)
+    model.learn(total_timesteps=32_768, callback=callback, tb_log_name="PPO_" + str(run), reset_num_timesteps=False)
     model.save(os.path.join(log_dir, str(run) + "_run"))
 
 if __name__ == "__main__":
+    # print(ping("10.202.0.1"))
     train()
