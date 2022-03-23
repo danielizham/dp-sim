@@ -756,7 +756,7 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
 #             os.makedirs(self.save_path, exist_ok=True)
 
     def _on_step(self) -> bool:
-        if self.n_calls % 2048 == 0:
+        if self.n_calls % 4096 == 0:
             self.model.save(os.path.join(self.progress_dir, 'model_' + str(self.n_calls)))
             
         if self.n_calls % self.check_freq == 0:
@@ -800,8 +800,8 @@ def train():
     callback = SaveOnBestTrainingRewardCallback(check_freq=1024, log_dir=log_dir)
 
     # model = PPO("MlpPolicy", env, n_steps=2048, verbose=1, tensorboard_log=log_dir)
-    # model = PPO.load(os.path.join(log_dir, str(run-1) + "_run"), env)
-    model = PPO.load(os.path.join(log_dir, "progress/model_12288"), env)
+    model = PPO.load(os.path.join(log_dir, str(run-1) + "_run"), env)
+    # model = PPO.load(os.path.join(log_dir, "progress/model_12288"), env)
     model.learn(total_timesteps=16_384, callback=callback, tb_log_name="PPO_" + str(run), reset_num_timesteps=False)
     model.save(os.path.join(log_dir, str(run) + "_run"))
 
