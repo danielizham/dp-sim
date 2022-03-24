@@ -7,7 +7,25 @@ from olympe.messages.ardrone3.Piloting import TakeOff, Landing, PCMD
 from pynput.keyboard import Listener, Key, KeyCode
 from collections import defaultdict
 from enum import Enum
-
+from olympe.messages.gimbal import set_target, attitude
+from olympe.messages.camera import (
+    set_camera_mode,
+    set_photo_mode,
+    take_photo,
+    photo_progress,
+)
+from olympe.media import (
+    media_created,
+    resource_created,
+    media_removed,
+    resource_removed,
+    resource_downloaded,
+    indexing_state,
+    delete_media,
+    download_media,
+    download_media_thumbnail,
+    MediaEvent,
+)
 
 class Ctrl(Enum):
     (
@@ -154,10 +172,50 @@ class KeyboardCtrl(Listener):
                     ctrl_keys = AZERTY_CTRL_KEYS
         return ctrl_keys
 
+def setup_camera(drone):
+    assert drone.media_autoconnect
+    drone.media.integrity_check = True
+    is_indexed = False
+    while not is_indexed:
+        is_indexed = drone.media(
+            indexing_state(state="indexed")
+        ).wait(_timeout=5).success()
+    
+    drone(set_camera_mode(cam_id=0, value="photo")).wait()
+
+    assert drone(
+        set_photo_mode(
+            cam_id=0,
+            mode="single",
+            format= "rectilinear",
+            file_format="jpeg",
+            # the following are ignored in photo single mode
+            burst="burst_14_over_1s",
+            bracketing="preset_1ev",
+            capture_interval=5.0,
+        )
+    ).wait().success()
+
+    assert drone(
+        set_target(
+            gimbal_id=0,
+            control_mode="position",
+            yaw_frame_of_reference="none",
+            yaw=0.0,
+            pitch_frame_of_reference="absolute",
+            pitch=-90.0,
+            roll_frame_of_reference="none",
+            roll=0.0,
+            )
+        >> attitude(
+            pitch_absolute=-90.0, _policy="wait", _float_tol=(1e-3, 1e-1)
+            )
+        ).wait(_timeout=20).success()
 
 if __name__ == "__main__":
     with olympe.Drone("10.202.0.1") as drone:
-        drone.connection()
+        drone.connect()
+        setup_camera(drone)
         control = KeyboardCtrl()
         while not control.quit():
             if control.takeoff():

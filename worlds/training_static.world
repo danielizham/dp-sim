@@ -57,10 +57,10 @@
         firmware="/home/daniel/dp-sim/firmwares/anafi-pc.ext2.zip"
         hardware="anafi4k">
         <machine_params
-          with_front_cam="0"
+          with_front_cam="1"
           simple_front_cam="1"
           sdcard_serial="__undefined__"
-          with_gimbal="0"
+          with_gimbal="1"
           low_gpu="1"
           />
         <pose>default</pose>
@@ -105,76 +105,75 @@
       <uri>model://grid</uri>
       <pose>0 0 0 0 0 -0.022</pose> <!-- Change the yaw of the ground to align with the camera -->
     </include>
+    
+    <!--       <uri>model://target_01</uri> -->
+    <!--       <name>Target 1</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-7.213 -6.691 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_01</uri>
-          <name>Target 1</name>
-          <static>true</static>
-          <pose>-7.213 -6.691 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_02</uri> -->
+    <!--       <name>Target 2</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-4.09 -10.382 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_02</uri>
-          <name>Target 2</name>
-          <static>true</static>
-          <pose>-4.09 -10.382 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_03</uri> -->
+    <!--       <name>Target 3</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-7.304 -10.067 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_03</uri>
-          <name>Target 3</name>
-          <static>true</static>
-          <pose>-7.304 -10.067 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_04</uri> -->
+    <!--       <name>Target 4</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-6.668 -11.376 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_04</uri>
-          <name>Target 4</name>
-          <static>true</static>
-          <pose>-6.668 -11.376 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_05</uri> -->
+    <!--       <name>Target 5</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-8.922 -9.509 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_05</uri>
-          <name>Target 5</name>
-          <static>true</static>
-          <pose>-8.922 -9.509 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_06</uri> -->
+    <!--       <name>Target 6</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-8.493 -7.639 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_06</uri>
-          <name>Target 6</name>
-          <static>true</static>
-          <pose>-8.493 -7.639 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_07</uri> -->
+    <!--       <name>Target 7</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-8.942 -17.789 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_07</uri>
-          <name>Target 7</name>
-          <static>true</static>
-          <pose>-8.942 -17.789 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--   <uri>model://target_08</uri> -->
+    <!--       <name>Target 8</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-6.071 -15.397 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-      <uri>model://target_08</uri>
-          <name>Target 8</name>
-          <static>true</static>
-          <pose>-6.071 -15.397 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_09</uri> -->
+    <!--       <name>Target 9</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-6.175 -13.667 0 0 0 0</pose> -->
+    <!-- </include> -->
 
-    <include>
-          <uri>model://target_09</uri>
-          <name>Target 9</name>
-          <static>true</static>
-          <pose>-6.175 -13.667 0 0 0 0</pose>
-    </include>
-
-    <include>
-          <uri>model://target_10</uri>
-          <name>Target 10</name>
-          <static>true</static>
-          <pose>-7.159 -12.481 0 0 0 0</pose>
-    </include>
+    <!-- <include> -->
+    <!--       <uri>model://target_10</uri> -->
+    <!--       <name>Target 10</name> -->
+    <!--       <static>true</static> -->
+    <!--       <pose>-7.159 -12.481 0 0 0 0</pose> -->
+    <!-- </include> -->
 
   </world>
 </sdf>
