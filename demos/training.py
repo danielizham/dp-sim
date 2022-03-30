@@ -802,7 +802,7 @@ def train():
     # model = PPO("MlpPolicy", env, n_steps=2048, verbose=1, tensorboard_log=log_dir)
     model = PPO.load(os.path.join(log_dir, str(run-1) + "_run"), env)
     # model = PPO.load(os.path.join(log_dir, "progress/model_12288"), env)
-    model.learn(total_timesteps=16_384, callback=callback, tb_log_name="PPO_" + str(run), reset_num_timesteps=False)
+    model.learn(total_timesteps=8_192, callback=callback, tb_log_name="PPO_" + str(run), reset_num_timesteps=False)
     model.save(os.path.join(log_dir, str(run) + "_run"))
 
 if __name__ == "__main__":
