@@ -116,9 +116,9 @@ namespace gazebo
 
     void Init()
     {
-      this->updateConnection = event::Events::ConnectWorldUpdateBegin(
-              boost::bind(&StaticTarget::OnUpdate, this));
-      this->initPose = this->model->GetWorldPose();
+        this->updateConnection = event::Events::ConnectWorldUpdateBegin(
+                boost::bind(&StaticTarget::OnUpdate, this));
+        this->initPose = this->model->GetWorldPose();
     }
 
     void OnUpdate()

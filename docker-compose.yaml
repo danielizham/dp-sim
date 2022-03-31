@@ -4,4 +4,4 @@ services:
     image: mylibgazebo
     container_name: mylibgazebo
     volumes: 
-      - ./plugins/moving_target:/app
+      - ./plugins/static_target:/app

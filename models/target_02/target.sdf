@@ -7,7 +7,7 @@
     <link name="goal_box">
 
       <inertial>
-        <mass>1</mass>
+        <mass>0.4</mass>
         <inertia>
           <ixx>0.0166667</ixx>
           <iyy>0.0166667</iyy>
@@ -22,7 +22,7 @@
         <transparency>1.0</transparency>
         <geometry>
           <box>
-            <size>0.7 0.7 0.01</size> <!-- 1 cm high -->
+            <size>0.195 0.195 0.01</size> <!-- 1 cm high -->
           </box>
         </geometry>
         <material>

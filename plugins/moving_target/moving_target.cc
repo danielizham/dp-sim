@@ -111,9 +111,9 @@ namespace gazebo
 
     void Init()
     {
-      this->updateConnection = event::Events::ConnectWorldUpdateBegin(
-              boost::bind(&MovingTarget::OnUpdate, this));
-      this->initPose = this->model->GetWorldPose();
+        this->updateConnection = event::Events::ConnectWorldUpdateBegin(
+                boost::bind(&MovingTarget::OnUpdate, this));
+        this->initPose = this->model->GetWorldPose();
     }
 
     void OnUpdate()
@@ -152,12 +152,12 @@ namespace gazebo
             if (this->hasSavedPosition)
                 this->hasSavedPosition = false;
 
-            double max_y = 20.0, min_y = -max_y, 
-                   max_x = 12.5, min_x = -max_x;
+            double max_y = 8.0, min_y = -max_y, 
+                   max_x = 5.0, min_x = -max_x;
 
             double distance_travelled = sqrt( pow(x_now-this->x_prev,2) + pow(y_now-this->y_prev,2) );
 
-            if (distance_travelled > 1) {
+            if (distance_travelled > 0.4) {
                 this->ChangeDirection();
                 this->x_prev = x_now;
                 this->y_prev = y_now;
@@ -173,18 +173,6 @@ namespace gazebo
             else if (y_now > max_y)
                 this->ChangeDirection({northeast,east,southeast});
            
-            /* if ( this->x == x_now && this->y == y_now ) { */
-            /*     RandomizeSpeed(); */
-            /* } else if (x_now < -2.5) { */
-            /*     RandomizeSpeed(0, 1, -1, 1); */
-            /* } else if (x_now > 2.5) { */
-            /*     RandomizeSpeed(-1, 0, -1, 1); */
-            /* } else if (y_now < -4.5) { */
-            /*     RandomizeSpeed(-1, 1, 0, 1); */
-            /* } else if (y_now > 4.5) { */
-            /*     RandomizeSpeed(-1, 1, -1, 0); */
-            /* } */
-
             this->MoveModelsPlane(this->dx, this->dy, 0, 0, 0, 0);
 
             this->x = x_now;
@@ -288,7 +276,6 @@ namespace gazebo
 
         this->model->SetLinearVel(ignition::math::Vector3d(linear_x_vel, linear_y_vel, linear_z_vel));
         this->model->SetAngularVel(ignition::math::Vector3d(angular_x_vel, angular_y_vel, angular_z_vel));
-
     }
 
     private: 
