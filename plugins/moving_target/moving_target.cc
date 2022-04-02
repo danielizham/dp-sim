@@ -224,7 +224,7 @@ namespace gazebo
 
     void Move(Direction dir)
     {
-        double dist = 0.7;
+        double dist = 0.38;
         double diag = dist; // sqrt(2*pow(dist,2)); 
 
         switch (dir) {
@@ -261,12 +261,6 @@ namespace gazebo
                 this->dy = diag;
                 break;
         }
-    }
-
-    void RandomizeSpeed(int min_dx=-1, int max_dx=1, int min_dy=-1, int max_dy=1) 
-    {
-        this->dx = ignition::math::Rand::DblUniform(min_dx, max_dx);
-        this->dy = ignition::math::Rand::DblUniform(min_dy, max_dy);
     }
 
     void MoveModelsPlane(float linear_x_vel, float linear_y_vel, float linear_z_vel, float angular_x_vel, float angular_y_vel, float angular_z_vel)
