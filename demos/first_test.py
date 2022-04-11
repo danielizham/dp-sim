@@ -15,8 +15,6 @@ from collections import OrderedDict
 import threading
 import queue
 
-import PySimpleGUI as sg
-
 from gym import Env, error, spaces, utils
 from stable_baselines3 import DQN, PPO, A2C, TD3, SAC
 from stable_baselines3.common.noise import NormalActionNoise, OrnsteinUhlenbeckActionNoise
@@ -78,7 +76,6 @@ from olympe.media import (
     MediaEvent,
 )
 
-from pynput.keyboard import Listener, Key, KeyCode
 from collections import defaultdict
 
 olympe.log.update_config({
