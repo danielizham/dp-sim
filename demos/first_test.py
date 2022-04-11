@@ -582,7 +582,7 @@ class Drone:
 
 
 class AnafiEnv(Env):
-    def __init__(self, num_targets, max_timestep, drone_ip="10.202.0.1", is_training=False):
+    def __init__(self, num_targets, max_timestep, drone_ip=DRONE_IP, is_training=False):
         super(AnafiEnv, self).__init__()
         
         self.num_targets = num_targets
@@ -596,7 +596,7 @@ class AnafiEnv(Env):
             dtype=np.uint8,
         )
     
-    def begin(self, num_targets, max_timestep, is_training, drone_ip="10.202.0.1"):
+    def begin(self, num_targets, max_timestep, is_training, drone_ip=DRONE_IP):
         self.agent = Drone(drone_ip, num_targets, max_timestep, is_training)
     
     def step(self, action):
