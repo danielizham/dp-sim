@@ -19,6 +19,7 @@ stable-baselines3 = "^1.4.0"
 torchvision = "^0.11.3"
 torch = "^1.10.2"
 tensorboard = "^2.8.0"
+protobuf = "^3.20.0"
 
 [tool.poetry.dev-dependencies]
 poethepoet = "^0.12.3"
