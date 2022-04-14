@@ -267,6 +267,14 @@ python-versions = ">=3.6"
 dev = ["pytest (>=5)", "pytest-cov", "coveralls", "black", "mypy", "pylint"]
 
 [[package]]
+name = "dbr"
+version = "9.0"
+description = "Dynamsoft Barcode Reader SDK is available for Windows, Linux(x64/ARM64), macOS, and Raspberry Pi OS, supporting linear barcode, QR Code, DataMatrix, MaxiCode, PDF417, etc."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "debugpy"
 version = "1.5.1"
 description = "An implementation of the Debug Adapter Protocol for Python"
@@ -1764,7 +1772,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8"
-content-hash = "aa5b3bc6d92a6c25e24c4c13e5d1e0e3b4c858eaacc9766c10b2233231ec2e39"
+content-hash = "3c3e24f839acda157481f3dc2298060743826e9349b7a7be8afbb086cf96dc41"
 
 [metadata.files]
 absl-py = [
@@ -1963,6 +1971,33 @@ cycler = [
 dacite = [
     {file = "dacite-1.6.0-py3-none-any.whl", hash = "sha256:4331535f7aabb505c732fa4c3c094313fc0a1d5ea19907bf4726a7819a68b93f"},
     {file = "dacite-1.6.0.tar.gz", hash = "sha256:d48125ed0a0352d3de9f493bf980038088f45f3f9d7498f090b50a847daaa6df"},
+]
+dbr = [
+    {file = "dbr-9.0-cp310-cp310-linux_armv7l.whl", hash = "sha256:49b6ec50a98a31d2e803c8fe408736be8b0e47641634b041bdf61b2f08c0cc7b"},
+    {file = "dbr-9.0-cp310-cp310-macosx_10_13_x86_64.whl", hash = "sha256:f4ce7f62df7264936023e52afdc31164d479cd9e0cf1b81d8b358d51bece9ee3"},
+    {file = "dbr-9.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:8d54b374e14eb61311292b2cfbaeb7c14d2f7ce40a3eae19aedceae4af9de175"},
+    {file = "dbr-9.0-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:880a7745771900590954a968af282cb2801f90a3b4c39a87b880721dccba4db8"},
+    {file = "dbr-9.0-cp310-cp310-win_amd64.whl", hash = "sha256:5690e97bb2257e85165fc4ad47486164122106d71a01dfc794ffad5f3af22f57"},
+    {file = "dbr-9.0-cp36-cp36m-linux_armv7l.whl", hash = "sha256:5df487cb953a3ab6c5be1aebf57992fe7c408baaeb514287d6ea107c4644cd50"},
+    {file = "dbr-9.0-cp36-cp36m-macosx_10_13_x86_64.whl", hash = "sha256:ef05d2a63f6d3b0d368588737eb84f1ee2ac4207f2c3cf5a7355749147168fe1"},
+    {file = "dbr-9.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:dadf48bad0759b915fb18099bf01d6d3ff31d786f6f04cd3f902a9c31cd086ce"},
+    {file = "dbr-9.0-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:a5f25fb2a8bc050118b405ca8e0c797cb217cd0425fd2ab5c317a7a9ba1e1f72"},
+    {file = "dbr-9.0-cp36-cp36m-win_amd64.whl", hash = "sha256:bcb3a71a9f3e628e4e9f902b9f41069458f93c6310a962fb30bc215a3c7bf359"},
+    {file = "dbr-9.0-cp37-cp37m-linux_armv7l.whl", hash = "sha256:35dd08fb7e47622146707987acc92fd5f18e61ea247c3c9b8c8f9c6097d6b603"},
+    {file = "dbr-9.0-cp37-cp37m-macosx_10_13_x86_64.whl", hash = "sha256:a09e3d22730195d48d92571c3c3cc47b9af0a6be688763a619e5e301450b2ce3"},
+    {file = "dbr-9.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:fc5cf3b9ad2b7804a322b4181560da09ea213dddadfd0f89e0d7b80df70c11d2"},
+    {file = "dbr-9.0-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:99f7e75dee6e03afa898f7a5e267406035d25906f3e8c95ac598d2f88d0198b7"},
+    {file = "dbr-9.0-cp37-cp37m-win_amd64.whl", hash = "sha256:005692e4624a6f9701b6330ce19b558f595e40a4acac3202dbd9e2a39f37bd25"},
+    {file = "dbr-9.0-cp38-cp38-linux_armv7l.whl", hash = "sha256:508099c88e3f2e61dfeece00cfab19115a3b1d6e2aced88c7a205fa5aaab9e71"},
+    {file = "dbr-9.0-cp38-cp38-macosx_10_13_x86_64.whl", hash = "sha256:464bde635799dab72386cd53475d9f980db49b367d9343d571d4bfbe2f81ef2b"},
+    {file = "dbr-9.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:7db198a28c8a9959af7dcfb4b0f58dee29c275e70708cec6b4c5e340bedabdb4"},
+    {file = "dbr-9.0-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:632cf6f745127e2542dd3344e57cba17a251b17919da6d8360d29088989e72ab"},
+    {file = "dbr-9.0-cp38-cp38-win_amd64.whl", hash = "sha256:e1691654e9f87254bd1ed12f2e1e2cecf53fdbe0e7d7788344facc2222c8ba7b"},
+    {file = "dbr-9.0-cp39-cp39-linux_armv7l.whl", hash = "sha256:43c9bc60ca3f3dd88a45a1623b2ce5b42b42267c1803497249723dd91bf27f41"},
+    {file = "dbr-9.0-cp39-cp39-macosx_10_13_x86_64.whl", hash = "sha256:414ec4bb5b5fb93654c6669b13a1c68b0576170041efbc7f049bc44ec3476405"},
+    {file = "dbr-9.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:5baec38f80eeaef56937fa1af511cf137dd0eae19c5b274fcf4912a78fb4fabc"},
+    {file = "dbr-9.0-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:e3969d51b5685695edfc7cf148017c375ade1fb5facac1262982081f9ad1559b"},
+    {file = "dbr-9.0-cp39-cp39-win_amd64.whl", hash = "sha256:cd9a4a91b69bee23127660000ceda29f3506c79f32f8c3fbcb428fa3299e18c3"},
 ]
 debugpy = [
     {file = "debugpy-1.5.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:70b422c63a833630c33e3f9cdbd9b6971f8c5afd452697e464339a21bbe862ba"},
