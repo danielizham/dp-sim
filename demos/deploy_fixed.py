@@ -375,16 +375,21 @@ class Streaming(threading.Thread):
         if results != None:
             found = len(results)
             for result in results:
-                print("Format: %s, Text: %s" % (result.barcode_format_string, result.barcode_text))
+                # print("Format: %s, Text: %s" % (result.barcode_format_string, result.barcode_text))
                 text = result.barcode_text 
                 points = result.localization_result.localization_points
                 data = np.array([[points[0][0], points[0][1]], [points[1][0], points[1][1]], [points[2][0], points[2][1]], [points[3][0], points[3][1]]])
                 cv2.drawContours(image=frame, contours=[data], contourIdx=-1, color=COLOR_RED, thickness=thickness, lineType=cv2.LINE_AA)
-    #             cv2.putText(frame, result.barcode_text, (np.min(data[:,0]) - margin, np.min(data[:,1]) - margin), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+                cv2.putText(frame, result.barcode_text, (np.min(data[:,0]) - margin, np.min(data[:,1]) - margin), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+                idx = int(result.barcode_text) - 1
+                try:
+                    self.detected_targets[idx] = True
+                except (ValueError, IndexError):
+                    pass
 
-            cv2.putText(frame, '%.2f s, barcode found: %d' % (after - before, found), (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
-        else:
-            cv2.putText(frame, '%.2f s, barcode found: %d' % (after - before, 0), (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+            # cv2.putText(frame, '%.2f s, barcode found: %d' % (after - before, found), (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+        # else:
+            # cv2.putText(frame, '%.2f s, barcode found: %d' % (after - before, 0), (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
 
         return results
     
@@ -398,6 +403,10 @@ class Streaming(threading.Thread):
         self.reader = dbr.BarcodeReader()
         self.reader.init_license(LICENSE_KEY)
         
+        name = os.path.join(LOG_DIR, timestr + "_cv.mp4")
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        self.out = cv2.VideoWriter(name, fourcc, 30.10, (1280,720))
+
         self.is_detecting = False
         self.num_targets = num_targets
         self.detected_targets = np.zeros(self.num_targets, dtype=bool)
@@ -466,20 +475,15 @@ class Streaming(threading.Thread):
         }[yuv_frame.format()]
 
         cv2frame = cv2.cvtColor(yuv_frame.as_ndarray(), cv2_cvt_color_flag)
-#         cv2.imshow("Frames via Olympe", cv2frame)
-#         cv2.waitKey(1)
 
         if not self.is_detecting:
             self.detected_targets = np.zeros(self.num_targets, dtype=bool)
         else: 
-            results = self.reader.decode_buffer(cv2frame)
-            if results != None: 
-                for result in results:
-                    idx = int(result.barcode_text) - 1
-                    try:
-                        self.detected_targets[idx] = True
-                    except (ValueError, IndexError):
-                        pass
+            results = self.decode(cv2frame)
+
+        self.out.write(cv2frame)
+        cv2.imshow("Frames via Olympe", cv2frame)
+        cv2.waitKey(1)
 
     def run(self):
         main_thread = next(
@@ -609,11 +613,11 @@ class Drone:
         assert self.drone(Landing() >> FlyingStateChanged(state="landed")).wait().success()
         
     def __del__(self):
-        self.streamer.stop()
         self._land()
-        self.drone.disconnect()
+        self.streamer.stop()
         del self.streamer
         del self.action
+        self.drone.disconnect()
 
 
 class AnafiEnv(Env):
