@@ -42,6 +42,7 @@ import xml.etree.ElementTree as ET
 from io import StringIO, BytesIO
 
 import cv2
+import dbr
 import numpy as np
 import torch
 from PIL import Image
@@ -94,7 +95,9 @@ olympe.log.update_config({
 DETECTION_DELAY = 0.5 # seconds
 MAX_TIMESTEP = 20
 LOG_DIR = "logs/"
+# DRONE_IP = os.environ.get("DRONE_IP", "10.202.0.1")
 DRONE_IP = os.environ.get("DRONE_IP", "192.168.42.1")
+LICENSE_KEY = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"
 #=========================================#
 
 DRONE_MEDIA_PORT = os.environ.get("DRONE_MEDIA_PORT", "80")
@@ -218,7 +221,7 @@ class Action:
     
     @property
     def _cell_coords(self):
-        altitude = 1.0
+        altitude = 2.5
         dlong = 6.8e-5 * (2/9.5) # in degrees == 5 meters along x-axis (forward[+]-backward[-])
         dlat = 7.2e-5 * (3.2/8) # in degrees == 8 meters along y-axis (left[+]-right[-])
         
@@ -358,6 +361,33 @@ class Action:
 
 
 class Streaming(threading.Thread):
+
+    def decode(self, frame):
+
+        before = time.time()
+        results = self.reader.decode_buffer(frame)
+        after = time.time()
+
+        COLOR_RED = (0,0,255)
+        thickness = 2
+        margin = 1
+        text_x = 10; text_y = 20
+        if results != None:
+            found = len(results)
+            for result in results:
+                print("Format: %s, Text: %s" % (result.barcode_format_string, result.barcode_text))
+                text = result.barcode_text 
+                points = result.localization_result.localization_points
+                data = np.array([[points[0][0], points[0][1]], [points[1][0], points[1][1]], [points[2][0], points[2][1]], [points[3][0], points[3][1]]])
+                cv2.drawContours(image=frame, contours=[data], contourIdx=-1, color=COLOR_RED, thickness=thickness, lineType=cv2.LINE_AA)
+    #             cv2.putText(frame, result.barcode_text, (np.min(data[:,0]) - margin, np.min(data[:,1]) - margin), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+
+            cv2.putText(frame, '%.2f s, barcode found: %d' % (after - before, found), (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+        else:
+            cv2.putText(frame, '%.2f s, barcode found: %d' % (after - before, 0), (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR_RED)
+
+        return results
+    
     def __init__(self, drone, num_targets):
         self.drone = drone
         self.frame_queue = queue.Queue()
@@ -365,6 +395,9 @@ class Streaming(threading.Thread):
         self.frame_num = 0 
         self.renderer = None
         
+        self.reader = dbr.BarcodeReader()
+        self.reader.init_license(LICENSE_KEY)
+
         self.is_detecting = False
         self.num_targets = num_targets
         self.detected_targets = np.zeros(self.num_targets, dtype=bool)
@@ -439,12 +472,21 @@ class Streaming(threading.Thread):
         if not self.is_detecting:
             self.detected_targets = np.zeros(self.num_targets, dtype=bool)
         else: 
-            for result in pyzbar.decode(cv2frame):
-                idx = int(result.data) - 1
-                try:
-                    self.detected_targets[idx] = True
-                except (ValueError, IndexError):
-                    pass
+            results = self.reader.decode_buffer(cv2frame)
+            if results != None: 
+                for result in results:
+                    idx = int(result.barcode_text) - 1
+                    try:
+                        self.detected_targets[idx] = True
+                    except (ValueError, IndexError):
+                        pass
+
+            # for result in pyzbar.decode(cv2frame):
+            #     idx = int(result.data) - 1
+            #     try:
+            #         self.detected_targets[idx] = True
+            #     except (ValueError, IndexError):
+            #         pass
 
     def run(self):
         main_thread = next(
