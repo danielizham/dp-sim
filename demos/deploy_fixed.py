@@ -223,8 +223,8 @@ class Action:
     @property
     def _cell_coords(self):
         altitude = 2.5
-        dlong = 6.8e-5 * (2/9.5) # in degrees == 5 meters along x-axis (forward[+]-backward[-])
-        dlat = 7.2e-5 * (3.2/8) # in degrees == 8 meters along y-axis (left[+]-right[-])
+        dlong = 6.8e-5 * (2/8.5) # in degrees == 5 meters along x-axis (forward[+]-backward[-])
+        dlat = 7.2e-5 * (3.2/8.5) # in degrees == 8 meters along y-axis (left[+]-right[-])
         
         home_lat = self.home["latitude"]
         home_long = self.home["longitude"]
@@ -510,12 +510,12 @@ class Drone:
         
         self.drone(GPSFixStateChanged(_policy = 'wait'))
         if not is_training: self._setup_camera()
+        self.streamer = Streaming(self.drone, num_targets)
+        self.streamer.start()
+
         self._takeoff()
 
-        self.streamer = Streaming(self.drone, num_targets)
         self.action = Action(self.drone)
-        
-        self.streamer.start()
         
         self.is_training = is_training
         self.num_targets = num_targets
